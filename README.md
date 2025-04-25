@@ -1,24 +1,7 @@
 # Corso di Natural Language Processing (NLP)
 
 ## 🎯 Obiettivo del Corso
-Introdurre i partecipanti ai concetti fondamentali del Natural Language Processing (NLP), evidenziando le applicazioni pratiche in ambito aziendale, con particolare focus sul customer care. Il corso mira a fornire strumenti concreti per comprendere, utilizzare e valutare le tecnologie NLP, con un focus su casi d'uso reali e implicazioni etiche.
-
-## 📚 Struttura del Corso
-
-### Contenuti Teorici
-- `01_introduzione_nlp.md`: Definizione, importanza e problemi risolti
-- `02_applicazioni_pratiche.md`: Analisi del sentiment, classificazione testi, chatbot
-- `03_tecniche_avanzate.md`: Word Embeddings, modelli Transformer
-- `04_etica_nlp.md`: Bias nei modelli, fairness, impatti reali
-
-### Notebook Python
-- `01_classificazione_testi.ipynb`: Classificazione testuale passo-passo
-- `02_analisi_sentiment.ipynb`: Analisi del sentiment con modelli pre-addestrati
-- `03_chatbot_customer_care.ipynb`: Sviluppo di un mini-chatbot per customer care
-
-### Materiali di Supporto
-- `glossario_termini_tecnici.md`: Glossario con spiegazioni semplici e analogie
-- `risorse_aggiuntive.md`: Link e riferimenti a risorse esterne
+Introdurre i partecipanti ai concetti fondamentali del Natural Language Processing (NLP), evidenziando le applicazioni pratiche in ambito aziendale. Il corso mira a fornire strumenti concreti per comprendere, utilizzare e valutare le tecnologie NLP, con un focus su casi d'uso reali e implicazioni etiche.
 
 ## 🔧 Strumenti e Tecnologie
 - Librerie Python: scikit-learn, spaCy, NLTK, Hugging Face Transformers
