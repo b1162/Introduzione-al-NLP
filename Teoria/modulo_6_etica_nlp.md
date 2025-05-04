@@ -15,6 +15,22 @@ In questo modulo, esploreremo le principali questioni etiche nell'NLP, esaminere
 > - Con l'adozione in contesti critici, aumenta l'importanza di considerazioni etiche
 > - Un approccio responsabile richiede bilanciamento tra innovazione e protezione da potenziali danni
 
+
+## Definizione di Algoretica
+L'algoretica è un campo emergente dell'etica che si occupa di studiare e valutare i problemi morali legati allo sviluppo, all'uso e all'impatto degli algoritmi, dei dati e delle pratiche correlate, specialmente nell'ambito dell'intelligenza artificiale (IA) e del Natural Language Processing (NLP). Questo disciplina si basa su valori condivisi e principi morali che guidano il comportamento nella società, andando oltre le leggi per concentrarsi su ciò che è considerato "giusto" o "sbagliato" in contesti tecnologici
+L'algoretica applicata al NLP richiede particolare attenzione, poiché le tecnologie linguistiche influenzano molti aspetti della vita quotidiana e possono perpetuare bias o causare danni se non gestite correttamente. Di seguito alcuni principi chiave e domande etiche da considerare, adattati da linee guida esistenti:
+- **Contesto della raccolta dati**: Il contesto in cui i dati sono stati raccolti corrisponde al contesto del loro utilizzo? Ad esempio, utilizzare dati raccolti per scopi accademici in un'applicazione commerciale potrebbe violare aspettative etiche
+- **Incentivi e bias nella raccolta dati**: I dati sono stati raccolti da persone o sistemi con quote o strutture di incentivazione che potrebbero introdurre distorsioni? Questo è particolarmente rilevante nei dataset per NLP, dove i bias culturali o linguistici possono emergere.
+- **Rappresentatività**: Chi è sottorappresentato o assente nei dati utilizzati per addestrare modelli di NLP? È possibile trovare dati aggiuntivi o utilizzare metodi statistici per rendere i dataset più inclusivi?
+- **Consenso e scelte significative**: I dati sono stati raccolti in un ambiente in cui i soggetti avevano scelte significative e consapevoli riguardo alla loro partecipazione? Questo è cruciale per garantire il rispetto della privacy e dell'autonomia individuale.
+  [The urgency of an algorethics](https://link.springer.com/article/10.1007/s44163-023-00056-6)
+
+
+## Sfide Etiche Specifiche nel NLP
+Le tecnologie di NLP, come i modelli linguistici avanzati (ad esempio GPT-2 e successivi), hanno capacità crescenti di generare testi che sembrano umani. Tuttavia, queste capacità sollevano questioni etiche significative, come la possibilità di diffondere disinformazione o di perpetuare stereotipi presenti nei dati di addestramento. Un esempio pratico è l'uso di modelli linguistici per generare contenuti con errori evidenti ma potenzialmente fuorvianti, evidenziando la necessità di una curatela attenta e di una trasparenza nell'uso di tali strumenti.
+Inoltre, l'ampia applicazione di tecnologie linguistiche richiede una consapevolezza etica per identificare comportamenti potenzialmente non etici, come l'uso di sistemi NLP per manipolare opinioni o violare la privacy.
+
+
 ## Bias e fairness nei sistemi NLP
 
 I bias (pregiudizi) nei sistemi NLP rappresentano una delle sfide etiche più significative e persistenti. Questi sistemi possono perpetuare o amplificare pregiudizi esistenti nella società, con conseguenze potenzialmente dannose per individui e gruppi già marginalizati.

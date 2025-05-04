@@ -19,6 +19,16 @@ In questo modulo, approfondiremo l'architettura Transformer, esploreremo l'evolu
 
 L'architettura Transformer, introdotta da Vaswani et al. nel 2017, ha rivoluzionato l'NLP eliminando la necessità di ricorrenza e convoluzione, basandosi invece esclusivamente sul meccanismo di attenzione. Questa sezione approfondisce i dettagli di questa architettura fondamentale.
 
+| Componente             | Descrizione                                     | Scopo                                                        |
+|------------------------|-------------------------------------------------|--------------------------------------------------------------|
+| Attenzione Multi-Head  | Meccanismo per concentrarsi su diverse parti dell'input | Cattura le dipendenze tra diverse posizioni nella sequenza    |
+| Reti Feed-Forward      | Strati completamente connessi per posizione     | Trasforma gli output dell'attenzione, aggiungendo complessità |
+| Codifica Posizionale   | Aggiunge informazioni posizionali agli embedding | Fornisce il contesto dell'ordine della sequenza al modello    |
+| Normalizzazione Layer  | Normalizza gli input di ogni sotto-strato       | Stabilizza l'addestramento, migliora la convergenza           |
+| Connessioni Residue    | Scorciatoie tra gli strati                      | Aiuta nell'addestramento di reti più profonde riducendo i problemi di gradiente |
+| Dropout                | Azzera casualmente alcune connessioni della rete | Previene l'overfitting regolarizzando il modello              |
+
+
 ### Il meccanismo di self-attention
 
 Il cuore del Transformer è il meccanismo di self-attention, che permette a ogni elemento di una sequenza di interagire direttamente con tutti gli altri elementi, catturando dipendenze a lungo termine in modo efficiente.

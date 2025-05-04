@@ -8,8 +8,30 @@ Il linguaggio naturale, con la sua ricchezza, ambiguità e complessità, rappres
 
 L'NLP non si limita alla semplice analisi sintattica o alla traduzione meccanica di parole da una lingua all'altra. Si tratta di un campo molto più ampio che comprende la comprensione del significato, del contesto, delle sfumature emotive e persino delle implicazioni culturali presenti nel linguaggio. Questa complessità rende l'NLP una delle aree più affascinanti e sfidanti dell'intelligenza artificiale moderna.
 
-> **Concetti Chiave**
-> 
+Siamo in un momento storico straordinario: l’intelligenza artificiale linguistica non solo sta rivoluzionando il modo in cui comunichiamo con le macchine, ma sta anche ridefinendo la programmazione, la collaborazione tra sistemi e le stesse basi dell’etica tecnologica.
+
+## 1. Vibe Coding: La Nuova Era della Programmazione Creativa
+
+Immaginate di poter realizzare un progetto digitale semplicemente descrivendo ciò che volete ottenere, senza preoccuparvi della scrittura dettagliata del codice. Questa è la promessa del **vibe coding**: un nuovo paradigma abilitato dai modelli linguistici di grandi dimensioni (LLM), dove la creatività e l’intuizione guidano lo sviluppo, e l’AI traduce le vostre idee in soluzioni funzionanti.
+Nel nostro corso vedremo come sfruttare questi strumenti per accelerare la prototipazione, democratizzare l’innovazione e rendere la tecnologia più accessibile che mai.
+
+## 2. Welfare dei Modelli: Etica e Responsabilità nell’AI
+
+Ma con grande potere arrivano anche grandi responsabilità. Oggi, i modelli AI sono così sofisticati che si inizia a parlare di **welfare dei modelli**: un tema di ricerca di frontiera che si interroga su come trattare sistemi sempre più avanzati, se possano meritare considerazione morale, e come riconoscere eventuali segnali di “disagio” nei modelli.
+Anthropic, con il suo programma di ricerca pionieristico, ci mostra che il futuro dell’AI non sarà solo una questione di efficienza, ma anche di rispetto, trasparenza e consapevolezza etica. Nel corso affronteremo queste domande, imparando a progettare soluzioni che siano potenti ma anche responsabili.
+
+## 3. Collaborazione tra Sistemi: MCP e A2A, l’AI che Lavora in Rete
+
+L’intelligenza artificiale non vive più in silos: oggi, la vera innovazione nasce dalla **collaborazione tra agenti e sistemi diversi**. Due protocolli aperti stanno cambiando le regole del gioco:
+
+- **Model Context Protocol (MCP)**: sviluppato da Anthropic e adottato da altri big del settore, MCP permette ai modelli AI di connettersi facilmente a fonti dati, strumenti aziendali e repository esterni. In pratica, MCP fornisce ai modelli il “contesto” di cui hanno bisogno per risolvere compiti complessi, standardizzando e semplificando l’accesso a dati e servizi.
+- **Agent-to-Agent Protocol (A2A)**: introdotto da Google, A2A consente agli agenti AI di comunicare, condividere informazioni e coordinare azioni tra loro, anche se sviluppati su piattaforme diverse. Questo protocollo standardizza la collaborazione tra agenti, abilitando workflow multi-agente e soluzioni modulari dove ogni agente può delegare compiti e scambiare risultati in modo sicuro e trasparente.
+
+Questi protocolli, insieme, sono la chiave per un’AI realmente distribuita e intelligente: agenti specializzati che accedono a risorse tramite MCP e collaborano tra loro grazie ad A2A, costruendo soluzioni che vanno oltre le capacità del singolo modello.
+
+---
+**Concetti Chiave**
+ 
 > - L'NLP è l'intersezione tra linguistica computazionale, informatica e machine learning
 > - L'obiettivo è consentire alle macchine di comprendere e generare linguaggio umano
 > - Va oltre l'analisi sintattica, includendo comprensione semantica e contestuale
