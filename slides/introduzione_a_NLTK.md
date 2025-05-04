@@ -1,6 +1,3 @@
-Certamente! Ecco la presentazione MARP completa che include tutte le slide del modulo pratico basato sull'articolo di Real Python, con gli esempi di codice pertinenti per ogni sezione e le note del presentatore.
-
-```markdown
 ---
 marp: true
 theme: default
@@ -312,4 +309,3 @@ Nota per il presentatore: Questa slide riassume i punti chiave e le funzioni NLT
 <!-- 
 Nota per il presentatore: Incoraggia i partecipanti a continuare a esplorare. Suggerisci di provare con testi diversi e magari in altre lingue supportate da NLTK (come l'italiano per le stop words). Indica le risorse principali (libro NLTK, articolo originale) per approfondire. Infine, apri la sessione alle domande.
 -->
-```
