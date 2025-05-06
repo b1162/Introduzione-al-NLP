@@ -7,11 +7,9 @@ Questa raccolta di risorse aggiuntive è pensata per approfondire gli argomenti 
 ### Fondamenti di NLP
 - **"Natural Language Processing with Python"** di Steven Bird, Ewan Klein e Edward Loper
   - Ottima introduzione pratica all'NLP utilizzando la libreria NLTK
-  - [Link all'edizione italiana](https://www.hoepli.it/libro/natural-language-processing-with-python/9788820361747.html)
 
 - **"Speech and Language Processing"** di Dan Jurafsky e James H. Martin
   - Testo completo che copre tutti gli aspetti dell'elaborazione del linguaggio
-  - [Versione online gratuita](https://web.stanford.edu/~jurafsky/slp3/)
 
 - **"Fondamenti di Linguistica Computazionale"** di Alessandro Lenci, Simonetta Montemagni e Vito Pirrelli
   - Testo in italiano che introduce i concetti fondamentali dell'NLP
@@ -20,7 +18,6 @@ Questa raccolta di risorse aggiuntive è pensata per approfondire gli argomenti 
 ### Machine Learning per NLP
 - **"Deep Learning"** di Ian Goodfellow, Yoshua Bengio e Aaron Courville
   - Testo fondamentale per comprendere le reti neurali applicate all'NLP
-  - [Versione online gratuita](https://www.deeplearningbook.org/)
 
 - **"Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow"** di Aurélien Géron
   - Guida pratica all'implementazione di modelli di machine learning, inclusi quelli per NLP
@@ -33,13 +30,6 @@ Questa raccolta di risorse aggiuntive è pensata per approfondire gli argomenti 
   - Strategie per integrare l'intelligenza artificiale nel customer care
 
 ## Corsi Online
-
-### Corsi in Italiano
-- **"Natural Language Processing"** - Politecnico di Milano (Coursera)
-  - [Link al corso](https://www.coursera.org/learn/natural-language-processing)
-
-- **"Elaborazione del Linguaggio Naturale"** - Università di Bologna (Unibo Open Knowledge)
-  - [Link al corso](https://book.unibo.it/)
 
 ### Corsi in Inglese
 - **"Natural Language Processing Specialization"** - DeepLearning.AI (Coursera)
