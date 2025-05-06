@@ -118,30 +118,63 @@ Possibile domanda: "Quale fase ritenete più critica per il successo di un siste
 
 # 🧹 Preprocessing e Feature Extraction
 
-**Preprocessing**:
-- 🔤 Tokenizzazione (divisione in parole/token)
-- 📝 Normalizzazione (minuscolo, rimozione punteggiatura)
-- 🚫 Rimozione stopwords ("il", "la", "e", "di"...)
-- 🌱 Stemming/Lemmatizzazione (riduzione alla forma base)
-**Feature Extraction**:
-- 🧮 **Bag-of-Words (BoW)**: conteggio delle parole
-- 📊 **TF-IDF**: frequenza del termine × inverso della frequenza nei documenti
-- 🔤 **N-grams**: sequenze di N parole consecutive
-- 🧠 **Word Embeddings**: Word2Vec, GloVe, FastText
-- 🔄 **Embeddings contestuali**: BERT, RoBERTa
+### ✂️ Preprocessing
+
+- 🔤 **Tokenizzazione** → dividere il testo in parole o token  
+- 📝 **Normalizzazione** → minuscolo, rimozione punteggiatura  
+- 🚫 **Rimozione stopwords** → eliminare parole comuni (“il”, “la”, “e”...)  
+- 🌱 **Stemming / Lemmatizzazione** → ridurre alla forma base (es. “correndo” → “correre”)
 
 <!-- 
-Questa slide approfondisce le fasi di preprocessing e feature extraction.
+Commento speaker:
+Qui spieghiamo come “puliamo” il testo per prepararlo all’analisi.
+Sono operazioni semplici ma fondamentali per ridurre rumore e standardizzare.
+-->
 
-Punti da enfatizzare:
-- Il preprocessing "pulisce" e standardizza il testo per l'analisi
-- La feature extraction trasforma il testo in rappresentazioni numeriche
-- C'è un'evoluzione dalle rappresentazioni sparse (BoW, TF-IDF) a quelle dense (embeddings)
-- Gli embeddings contestuali rappresentano lo stato dell'arte attuale
+---
 
-Esempio concreto: "Con BoW, 'il cane morde l'uomo' e 'l'uomo morde il cane' avrebbero la stessa rappresentazione, perdendo l'ordine. Gli embeddings contestuali invece catturano queste differenze."
+### 🔍 Feature Extraction
 
-Possibile domanda: "In quali casi potrebbe essere preferibile usare una semplice rappresentazione BoW rispetto a embeddings più sofisticati?"
+- 🧮 **Bag-of-Words (BoW)** → conta quante volte appaiono le parole  
+- 📊 **TF-IDF** → pesa parole frequenti nel testo ma rare nei documenti  
+- 🔤 **N-grams** → sequenze di N parole consecutive  
+- 🧠 **Word Embeddings** → vettori densi (Word2Vec, GloVe, FastText)  
+- 🔄 **Embeddings contestuali** → modelli avanzati (BERT, RoBERTa) che capiscono il contesto
+
+<!-- 
+Commento speaker:
+Qui mostriamo come trasformiamo il testo in numeri.
+Si parte da metodi più semplici (BoW, TF-IDF) a metodi più avanzati come gli embeddings,
+che catturano significato e contesto.
+-->
+
+---
+
+### ℹ️ Note importanti
+
+- Il preprocessing “pulisce” il testo per prepararlo all’analisi  
+- La feature extraction trasforma il testo in numeri per i modelli  
+- Si è passati da metodi semplici e sparsi (BoW, TF-IDF) a metodi densi e complessi (embeddings)  
+- ⚠️ Esempio:  
+  BoW → “il cane morde l’uomo” ≈ “l’uomo morde il cane”  
+  BERT → distingue l’ordine e il significato
+
+<!-- 
+Commento speaker:
+Sottolineare che il preprocessing viene prima e la feature extraction dopo.
+Fornire l’esempio delle frasi per mostrare i limiti di BoW e la potenza degli embeddings.
+-->
+
+---
+
+### 💬 Domanda possibile
+
+👉 In quali casi conviene usare **BoW** invece di embeddings avanzati?
+
+<!-- 
+Commento speaker:
+Stimolare la riflessione: BoW può essere utile in problemi semplici,
+con pochi dati o quando servono modelli interpretabili.
 -->
 
 ---
@@ -159,17 +192,19 @@ Possibile domanda: "In quali casi potrebbe essere preferibile usare una semplice
 - 📈 **Gaussian NB**: per feature continue
 
 <!-- 
-Questa slide introduce Naive Bayes, uno degli algoritmi più semplici ma efficaci.
+Commento speaker:
+Questa slide introduce Naive Bayes, uno degli algoritmi più semplici ma sorprendentemente efficaci. 
+Il punto centrale da sottolineare è che, anche se fa un’assunzione ingenua di indipendenza tra le parole 
+(ad esempio tratta “gatto” e “nero” come indipendenti, ignorando che “nero” è più probabile dopo “gatto” 
+che dopo altre parole), riesce comunque a dare ottimi risultati.
 
-Punti da enfatizzare:
-- Nonostante l'"ingenua" assunzione di indipendenza tra parole (chiaramente falsa), funziona sorprendentemente bene
-- È spesso la baseline con cui confrontare algoritmi più complessi
-- Particolarmente efficace con dataset piccoli
-- Molto veloce sia in addestramento che in inferenza
+È spesso usato come baseline per confrontare modelli più complessi, 
+funziona molto bene su dataset piccoli e ha il vantaggio di essere estremamente veloce 
+sia in fase di addestramento che di inferenza.
 
-Approfondimento: "L'assunzione di indipendenza significa che il modello considera 'il gatto nero' come parole indipendenti, ignorando che 'nero' è più probabile dopo 'gatto' che dopo altre parole."
-
-Possibile domanda: "Perché secondo voi un algoritmo così semplice e con assunzioni irrealistiche funziona così bene nella pratica per la classificazione testuale?"
+Domanda da lanciare al pubblico:
+“Perché secondo voi un algoritmo così semplice e con assunzioni irrealistiche funziona 
+così bene nella pratica per la classificazione testuale?”
 -->
 
 ---
@@ -184,17 +219,22 @@ Possibile domanda: "Perché secondo voi un algoritmo così semplice e con assunz
 - ⚠️ Può essere lento su dataset molto grandi
 
 <!-- 
-Questa slide presenta SVM, un algoritmo potente per la classificazione.
+Commento speaker:
+Questa slide presenta le Support Vector Machine (SVM), un algoritmo molto potente per la classificazione. 
+Il punto chiave è che SVM cerca il confine decisionale ottimale tra le classi, 
+massimizzando il margine, cioè la distanza tra i punti più vicini delle classi opposte. 
+Questo aiuta molto la capacità di generalizzazione del modello.
 
-Punti da enfatizzare:
-- SVM cerca di trovare il "confine decisionale" ottimale tra classi
-- Il concetto di margine massimo aiuta la generalizzazione
-- Il kernel trick permette di gestire relazioni non lineari
-- Particolarmente efficace in spazi ad alta dimensionalità (come il testo)
+Un elemento importante è il cosiddetto “kernel trick”: 
+permette di trattare problemi non lineari mappando i dati in uno spazio a dimensione superiore, 
+senza dover calcolare esplicitamente questa trasformazione.
 
-Approfondimento: "Il kernel trick permette di mappare implicitamente i dati in uno spazio di dimensione superiore, dove diventano linearmente separabili, senza calcolare esplicitamente questa trasformazione."
+Da ricordare che SVM funziona particolarmente bene con dati ad alta dimensionalità, come il testo (es. con feature TF-IDF), 
+ma può diventare lento su dataset molto grandi.
 
-Possibile domanda: "In quali scenari SVM potrebbe essere preferibile a Naive Bayes, nonostante il maggior costo computazionale?"
+Domanda da proporre al pubblico:
+“In quali scenari SVM potrebbe essere preferibile a Naive Bayes, 
+nonostante il maggior costo computazionale?”
 -->
 
 ---
@@ -209,17 +249,22 @@ Possibile domanda: "In quali scenari SVM potrebbe essere preferibile a Naive Bay
 - 🛠️ Facilmente estendibile a classificazione multi-classe
 
 <!-- 
-Questa slide illustra la Regressione Logistica, spesso sottovalutata ma molto efficace.
+Commento speaker:
+Questa slide illustra la Regressione Logistica, un algoritmo spesso sottovalutato ma molto efficace per la classificazione. 
+È importante sottolineare che, nonostante il nome “regressione”, si tratta di un modello per la classificazione. 
+Un grande vantaggio è che non restituisce solo un’etichetta, ma anche una probabilità, 
+che può essere molto utile in contesti reali.
 
-Punti da enfatizzare:
-- Nonostante il nome "regressione", è un algoritmo di classificazione
-- Offre probabilità ben calibrate, non solo etichette
-- È intrinsecamente interpretabile (i pesi indicano l'importanza delle feature)
-- Spesso competitiva con algoritmi più complessi per la classificazione testuale
+Il modello è interpretabile: i pesi associati alle feature indicano quanto ciascuna contribuisce alla predizione. 
+Inoltre, è spesso competitivo anche rispetto a modelli più complessi, specialmente sui testi.
 
-Esempio pratico: "In un sistema di rilevamento frodi, avere una probabilità del 95% vs 51% fa una grande differenza, anche se entrambe porterebbero alla stessa classificazione binaria."
+Esempio pratico da condividere:
+“In un sistema di rilevamento frodi, sapere che la probabilità è del 95% rispetto al 51% 
+fa una grande differenza, anche se in entrambi i casi il modello segnalerebbe una frode.”
 
-Possibile domanda: "In quali contesti aziendali la capacità di fornire probabilità ben calibrate, oltre alle semplici etichette, potrebbe essere particolarmente importante?"
+Domanda da proporre al pubblico:
+“In quali contesti aziendali la capacità di fornire probabilità ben calibrate, 
+oltre alle semplici etichette, potrebbe essere particolarmente importante?”
 -->
 
 ---
@@ -237,17 +282,26 @@ Possibile domanda: "In quali contesti aziendali la capacità di fornire probabil
   - ⚙️ Richiede tuning attento degli iperparametri
 
 <!-- 
-Questa slide copre i metodi ensemble, che combinano più modelli per migliorare le performance.
+Commento speaker:
+Questa slide copre i metodi ensemble, che combinano più modelli per migliorare le performance complessive. 
+L’idea chiave è “l’unione fa la forza”: anziché puntare su un singolo modello, 
+ne combiniamo tanti per ottenere risultati più stabili e robusti.
 
-Punti da enfatizzare:
-- I metodi ensemble sfruttano il principio "l'unione fa la forza"
-- Random Forest è più robusto e richiede meno tuning
-- Gradient Boosting spesso offre le migliori performance tra i metodi tradizionali
-- Entrambi forniscono stime di importanza delle feature
+Random Forest costruisce molti alberi decisionali su dati e feature casuali, 
+è molto robusto all’overfitting e richiede meno tuning.
 
-Approfondimento: "XGBoost e LightGBM sono implementazioni ottimizzate di Gradient Boosting che hanno dominato molte competizioni di machine learning prima dell'avvento del deep learning."
+Gradient Boosting invece lavora in sequenza: 
+ogni nuovo modello corregge gli errori del precedente. 
+È spesso considerato tra i migliori metodi tradizionali, 
+specialmente nelle sue versioni ottimizzate come XGBoost e LightGBM, 
+che hanno dominato le competizioni ML prima dell’arrivo del deep learning.
 
-Possibile domanda: "Quali vantaggi e svantaggi vedete nell'utilizzare metodi ensemble rispetto a singoli modelli in un contesto aziendale?"
+Da sottolineare anche che entrambi permettono di valutare 
+l’importanza delle feature, utile in molti progetti pratici.
+
+Domanda da lanciare al pubblico:
+“Quali vantaggi e svantaggi vedete nell’utilizzare metodi ensemble 
+rispetto a singoli modelli in un contesto aziendale?”
 -->
 
 ---
@@ -264,17 +318,22 @@ Possibile domanda: "Quali vantaggi e svantaggi vedete nell'utilizzare metodi ens
 - 🔍 Non cattura naturalmente la sequenzialità del testo
 
 <!-- 
-Questa slide introduce le reti neurali feed-forward, il modello neurale più semplice.
+Commento speaker:
+Questa slide introduce le reti neurali feed-forward, il modello neurale più semplice e il punto di partenza del deep learning. 
+Sono un ponte tra i modelli tradizionali e le architetture neurali più avanzate.
 
-Punti da enfatizzare:
-- Rappresentano il ponte tra approcci tradizionali e deep learning avanzato
-- Possono apprendere feature complesse dai dati
-- Non sono specificamente progettate per dati sequenziali come il testo
-- Richiedono una rappresentazione vettoriale fissa del documento
+Il vantaggio principale è che possono apprendere pattern complessi direttamente dai dati, 
+ma hanno anche delle limitazioni: non sono pensate per gestire dati sequenziali come il testo 
+e richiedono una rappresentazione vettoriale fissa in input, come BoW, TF-IDF o embeddings.
 
-Esempio concreto: "Una rete feed-forward potrebbe prendere in input un vettore TF-IDF di 10.000 dimensioni (una per ogni parola del vocabolario) e produrre in output la probabilità di appartenenza a ciascuna categoria."
+Esempio concreto da menzionare:
+“Una rete feed-forward può prendere in input un vettore TF-IDF 
+con 10.000 dimensioni (una per parola del vocabolario) 
+e restituire la probabilità che il testo appartenga a ciascuna categoria.”
 
-Possibile domanda: "Quali sono i vantaggi di utilizzare una rete neurale feed-forward rispetto a modelli tradizionali come SVM per la classificazione testuale?"
+Domanda da proporre al pubblico:
+“Quali vantaggi vedete nell’usare una rete neurale feed-forward 
+rispetto a modelli tradizionali come SVM per la classificazione testuale?”
 -->
 
 ---
@@ -290,17 +349,23 @@ Possibile domanda: "Quali sono i vantaggi di utilizzare una rete neurale feed-fo
 - 🐢 Processamento sequenziale lento (non parallelizzabile)
 
 <!-- 
-Questa slide presenta le RNN, specificamente progettate per dati sequenziali.
+Commento speaker:
+Questa slide presenta le Reti Neurali Ricorrenti (RNN), 
+progettate appositamente per lavorare con dati sequenziali come il testo. 
+La loro caratteristica principale è che mantengono una “memoria” dello stato precedente, 
+cioè delle parole già lette, mentre processano la sequenza.
 
-Punti da enfatizzare:
-- Le RNN mantengono una "memoria" delle parole precedenti mentre processano il testo
-- LSTM e GRU risolvono il problema dei gradienti svanescenti delle RNN vanilla
-- Possono catturare dipendenze a lungo termine nel testo
-- Sono state lo stato dell'arte per molti task NLP prima dei Transformer
+Le varianti avanzate, come LSTM e GRU, risolvono il problema dei gradienti svanescenti, 
+che affligge le RNN vanilla, e permettono di catturare dipendenze anche a lungo termine. 
+Sono state lo stato dell’arte in NLP per anni, prima dell’arrivo dei Transformer.
 
-Approfondimento: "Le LSTM hanno 'porte' che controllano il flusso di informazioni, permettendo alla rete di 'ricordare' informazioni importanti per lunghi periodi e 'dimenticare' quelle irrilevanti."
+Approfondimento da menzionare:
+“Le LSTM usano delle ‘porte’ per decidere cosa ricordare e cosa dimenticare, 
+gestendo così in modo efficace il flusso di informazioni lungo la sequenza.”
 
-Possibile domanda: "In quali tipi di testi la capacità di catturare dipendenze a lungo termine è particolarmente importante?"
+Domanda da proporre al pubblico:
+“In quali tipi di testi pensate che la capacità di catturare dipendenze a lungo termine 
+sia particolarmente importante?”
 -->
 
 ---
@@ -316,17 +381,26 @@ Possibile domanda: "In quali tipi di testi la capacità di catturare dipendenze 
 - 💪 Sorprendentemente efficaci per la classificazione testuale
 
 <!-- 
-Questa slide illustra le CNN, originariamente sviluppate per la computer vision ma efficaci anche per il testo.
+Commento speaker:
+Questa slide illustra le Reti Neurali Convoluzionali (CNN), 
+originariamente sviluppate per la computer vision ma risultate efficaci anche nell’elaborazione del testo.
 
-Punti da enfatizzare:
-- Le CNN applicano filtri che scorrono sul testo per identificare pattern locali
-- Ogni filtro può essere visto come un rilevatore di n-grammi
-- Sono computazionalmente efficienti grazie alla parallelizzazione
-- Catturano bene pattern locali ma non globali
+Il punto chiave è che le CNN applicano dei filtri che scorrono sul testo 
+per identificare pattern locali: ogni filtro può essere visto come un rilevatore di n-grammi, 
+cioè piccole sequenze di parole significative.
 
-Esempio concreto: "Un filtro convoluzionale potrebbe specializzarsi nel riconoscere frasi negative come 'non mi è piaciuto', 'davvero deludente', indipendentemente dalla loro posizione nel testo."
+Un grande vantaggio è la velocità: 
+le CNN sono molto più veloci da addestrare rispetto alle RNN perché possono essere parallelizzate. 
+Tuttavia, non riescono a catturare bene le dipendenze a lungo termine, 
+anche se sono sorprendentemente efficaci per la classificazione testuale.
 
-Possibile domanda: "Perché secondo voi le CNN, nate per l'analisi di immagini, funzionano bene anche per l'analisi testuale?"
+Esempio pratico da menzionare:
+“Un filtro convoluzionale può specializzarsi nel riconoscere frasi negative come 
+‘non mi è piaciuto’ o ‘davvero deludente’, indipendentemente da dove compaiono nel testo.”
+
+Domanda da proporre al pubblico:
+“Perché secondo voi le CNN, nate per l’analisi di immagini, 
+funzionano bene anche per l’analisi testuale?”
 -->
 
 ---
@@ -342,17 +416,28 @@ Possibile domanda: "Perché secondo voi le CNN, nate per l'analisi di immagini, 
 - 📏 Limitazioni sulla lunghezza dell'input
 
 <!-- 
-Questa slide presenta i Transformer, l'architettura che ha rivoluzionato l'NLP negli ultimi anni.
+Commento speaker:
+Questa slide presenta i Transformer, l’architettura che ha rivoluzionato l’NLP negli ultimi anni. 
+Il cuore dei Transformer è il meccanismo di self-attention, 
+che permette a ogni parola di “prestare attenzione” a tutte le altre nella sequenza. 
+Questo supera i limiti delle RNN, che devono processare parola per parola, 
+e delle CNN, che vedono solo pattern locali.
 
-Punti da enfatizzare:
-- Il meccanismo di self-attention permette a ogni parola di "prestare attenzione" a tutte le altre
-- Superano le limitazioni delle RNN (processamento sequenziale) e delle CNN (campo recettivo limitato)
-- Il pre-addestramento su enormi corpora seguito da fine-tuning ha cambiato il paradigma dell'NLP
-- Rappresentano lo stato dell'arte attuale per quasi tutti i task NLP
+Un aspetto fondamentale è il pre-addestramento su enormi quantità di testo 
+(BERT, RoBERTa, XLNet, ecc.) seguito da fine-tuning su task specifici. 
+Questo ha cambiato radicalmente l’approccio all’NLP e ha portato i Transformer 
+a diventare lo stato dell’arte per la maggior parte dei task.
 
-Approfondimento: "BERT è pre-addestrato su due task: Masked Language Modeling (predire parole mascherate) e Next Sentence Prediction. Questo gli permette di acquisire conoscenza linguistica generale prima del fine-tuning su task specifici."
+Approfondimento utile:
+“BERT, per esempio, è pre-addestrato su due task: 
+Masked Language Modeling (predire parole mascherate) 
+e Next Sentence Prediction. 
+Questo gli permette di acquisire conoscenza linguistica generale 
+prima del fine-tuning sul task specifico.”
 
-Possibile domanda: "Quali sono le implicazioni pratiche dell'utilizzo di modelli pre-addestrati come BERT rispetto all'addestramento di modelli da zero?"
+Domanda da proporre al pubblico:
+“Quali sono le implicazioni pratiche dell’utilizzo di modelli pre-addestrati come BERT 
+rispetto all’addestramento di modelli da zero?”
 -->
 
 ---
@@ -373,17 +458,28 @@ Possibile domanda: "Quali sono le implicazioni pratiche dell'utilizzo di modelli
 - 🧠 **Output**: categorico (pos/neg/neutro) o continuo (score)
 
 <!-- 
-Questa slide introduce l'analisi del sentiment, un caso speciale di classificazione testuale.
+Commento speaker:
+Questa slide introduce l’analisi del sentiment, 
+che possiamo considerare uno degli esempi più famosi e diffusi di classificazione testuale. 
+L’obiettivo non è solo classificare il testo, 
+ma capire l’attitudine o l’emozione espressa — per esempio, positiva, negativa o neutra.
 
-Punti da enfatizzare:
-- L'analisi del sentiment è probabilmente l'applicazione più diffusa della classificazione testuale
-- Va oltre la semplice categorizzazione, cercando di catturare emozioni e opinioni
-- Può essere implementata a diversi livelli di granularità e complessità
-- Ha enormi implicazioni commerciali (brand monitoring, voice of customer)
+È importante sottolineare che l’analisi del sentiment può lavorare a diversi livelli: 
+dal documento intero, fino a singole frasi o addirittura aspetti ed entità specifiche. 
+Gli approcci possono essere semplici, basati su dizionari di parole, 
+oppure più sofisticati, usando machine learning o metodi ibridi.
 
-Esempio pratico: "Amazon utilizza l'analisi del sentiment per monitorare le recensioni dei prodotti, identificare problemi emergenti e misurare la soddisfazione dei clienti."
+Ha applicazioni molto concrete e ad alto impatto, 
+per esempio nel monitoraggio del brand, nella voice of customer, 
+o nell’analisi automatica delle recensioni.
 
-Possibile domanda: "Quali sono secondo voi le applicazioni più impattanti dell'analisi del sentiment nel vostro settore?"
+Esempio pratico da menzionare:
+“Amazon usa l’analisi del sentiment per monitorare le recensioni, 
+individuare problemi emergenti e misurare la soddisfazione dei clienti.”
+
+Domanda da proporre al pubblico:
+“Quali sono secondo voi le applicazioni più impattanti 
+dell’analisi del sentiment nel vostro settore?”
 -->
 
 ---
@@ -403,17 +499,25 @@ Possibile domanda: "Quali sono secondo voi le applicazioni più impattanti dell'
   - "Apple ha rilasciato un ottimo prodotto, ma Samsung resta leader."
 
 <!-- 
-Questa slide illustra i diversi livelli di granularità dell'analisi del sentiment.
+Commento speaker:
+Questa slide spiega i diversi livelli di granularità dell’analisi del sentiment, 
+che vanno dal livello più generale, il documento, fino a livelli molto più dettagliati come aspetto ed entità. 
 
-Punti da enfatizzare:
-- La granularità aumenta dal livello documento al livello aspetto/entità
-- L'analisi a livello di aspetto (aspect-based sentiment analysis) è particolarmente preziosa per insights dettagliati
-- Più fine è la granularità, più complesso è il task
-- Le applicazioni aziendali spesso richiedono analisi a livello di aspetto per actionability
+Un punto importante da sottolineare è che più aumentiamo la granularità, 
+più diventa complesso il task, ma anche più utile e ricco l’insight che otteniamo. 
+L’aspect-based sentiment analysis, cioè l’analisi per aspetto, 
+è particolarmente preziosa in ambito aziendale perché permette di capire esattamente 
+cosa piace o non piace ai clienti.
 
-Esempio concreto: "Un'analisi a livello di documento potrebbe dirci che una recensione è negativa, ma un'analisi a livello di aspetto ci direbbe che il cliente è insoddisfatto specificamente del prezzo e del servizio clienti, ma apprezza la qualità del prodotto."
+Esempio pratico da citare:
+“Un’analisi a livello di documento ci direbbe che una recensione è negativa, 
+ma un’analisi a livello di aspetto ci permetterebbe di capire 
+che il cliente è scontento del prezzo e del servizio clienti, 
+ma soddisfatto della qualità del prodotto.”
 
-Possibile domanda: "Per quali tipi di decisioni aziendali sarebbe cruciale un'analisi del sentiment a livello di aspetto rispetto a una più semplice a livello di documento?"
+Domanda da proporre al pubblico:
+“Per quali tipi di decisioni aziendali pensate sia cruciale 
+un’analisi del sentiment a livello di aspetto rispetto a una più semplice a livello documento?”
 -->
 
 ---
@@ -432,17 +536,29 @@ Possibile domanda: "Per quali tipi di decisioni aziendali sarebbe cruciale un'an
   - 👎 Richiedono dati etichettati
 
 <!-- 
-Questa slide confronta i due principali approcci all'analisi del sentiment.
+Commento speaker:
+Questa slide mette a confronto i due principali approcci all’analisi del sentiment: 
+quello basato su lessico e quello basato su machine learning.
 
-Punti da enfatizzare:
-- Gli approcci basati su lessico sono semplici e non richiedono dati etichettati
-- Gli approcci ML sono più flessibili e potenti, ma richiedono dati di addestramento
-- Spesso gli approcci ibridi offrono il miglior compromesso
-- La scelta dipende dalle risorse disponibili e dalla complessità del dominio
+Gli approcci lessicali usano dizionari di parole con polarità già definite 
+e hanno il vantaggio di non richiedere dati etichettati, 
+ma sono limitati quando si trovano davanti a espressioni complesse, sarcasmo o mancanza di contesto.
 
-Approfondimento: "VADER è un lessico specificamente ottimizzato per i social media, che include regole per gestire emoji, slang e intensificatori come 'molto' o 'estremamente'."
+Gli approcci basati su machine learning, invece, possono catturare pattern complessi 
+e adattarsi meglio ai dati specifici, 
+ma hanno bisogno di dataset etichettati per l’addestramento.
 
-Possibile domanda: "In quali scenari preferireste un approccio basato su lessico rispetto a uno basato su machine learning, nonostante i suoi limiti?"
+Da ricordare che, nella pratica, spesso si ottengono i migliori risultati 
+combinando i due approcci in modo ibrido, 
+scegliendo in base alle risorse disponibili e alla complessità del dominio.
+
+Approfondimento utile:
+“VADER, per esempio, è un lessico pensato apposta per i social media 
+e gestisce anche emoji, slang e intensificatori come ‘molto’ o ‘estremamente’.”
+
+Domanda da proporre al pubblico:
+“In quali scenari preferireste un approccio basato su lessico 
+rispetto a uno basato su machine learning, nonostante i suoi limiti?”
 -->
 ---
 
@@ -457,17 +573,28 @@ Possibile domanda: "In quali scenari preferireste un approccio basato su lessico
 - 📱 **Emoji e emoticon**: 😊 vs 🙄 (richiedono interpretazione specifica)
 
 <!-- 
-Questa slide evidenzia le sfide specifiche dell'analisi del sentiment.
+Commento speaker:
+Questa slide mette in evidenza le principali sfide dell’analisi del sentiment, 
+che derivano soprattutto dalla complessità e dalla ricchezza del linguaggio umano.
 
-Punti da enfatizzare:
-- Il linguaggio umano è incredibilmente sfumato e contestuale
-- Sarcasmo e ironia sono particolarmente difficili anche per i modelli più avanzati
-- Le negazioni possono invertire completamente il sentiment
-- Le differenze culturali e linguistiche complicano l'analisi multilingue
+È importante sottolineare che elementi come sarcasmo e ironia 
+sono difficili da riconoscere persino per i modelli più avanzati. 
+Le negazioni possono ribaltare completamente il significato, 
+mentre intensificatori, espressioni idiomatiche e ambiguità 
+aggiungono ulteriori livelli di complessità.
 
-Esempio divertente: "Quando scrivo 'Che meraviglia, un altro lunedì mattina!' al mio collega, lui capisce il sarcasmo. Ma un algoritmo potrebbe interpretarlo come positivo."
+Inoltre, le differenze culturali e linguistiche 
+rendono l’analisi multilingue ancora più sfidante, 
+e le emoji portano con sé un ulteriore livello interpretativo.
 
-Possibile domanda: "Quali strategie potremmo adottare per migliorare la capacità dei modelli di rilevare sarcasmo e ironia?"
+Esempio divertente da raccontare:
+“Quando scrivo al mio collega ‘Che meraviglia, un altro lunedì mattina!’, 
+lui capisce che sto facendo sarcasmo, 
+ma un algoritmo potrebbe leggerlo come un commento positivo.”
+
+Domanda da proporre al pubblico:
+“Quali strategie potremmo adottare per migliorare 
+la capacità dei modelli di rilevare sarcasmo e ironia?”
 -->
 
 ---
@@ -487,17 +614,24 @@ Possibile domanda: "Quali strategie potremmo adottare per migliorare la capacit�
   - $\text{F1} = 2 \times \frac{\text{Precision} \times \text{Recall}}{\text{Precision} + \text{Recall}}$
 
 <!-- 
-Questa slide presenta le metriche fondamentali per valutare i classificatori testuali.
+Commento speaker:
+Questa slide introduce le metriche principali per valutare i classificatori testuali. 
+È fondamentale capire che l’accuracy, pur essendo la metrica più intuitiva, 
+può essere fuorviante, soprattutto in presenza di classi sbilanciate.
 
-Punti da enfatizzare:
-- L'accuracy da sola può essere fuorviante, specialmente con classi sbilanciate
-- Precision e recall rappresentano un trade-off fondamentale
-- F1-score bilancia precision e recall in un'unica metrica
-- La scelta della metrica dipende dal contesto applicativo
+Precision e recall rappresentano un trade-off importante: 
+la precision misura quanti dei positivi previsti erano davvero positivi, 
+mentre il recall misura quanti dei positivi reali siamo riusciti a trovare. 
+Il F1-score combina queste due metriche in un’unica misura bilanciata.
 
-Esempio pratico: "In un sistema di rilevamento frodi, il recall è cruciale (non vogliamo perdere frodi reali), mentre in un sistema di filtraggio contenuti, la precision potrebbe essere più importante (non vogliamo bloccare contenuti legittimi)."
+È cruciale scegliere la metrica giusta in base all’applicazione:
+per esempio, in un sistema antifrode ci interessa massimizzare il recall 
+per non perdere frodi reali, 
+mentre in un sistema di filtraggio contenuti vogliamo alta precision 
+per evitare falsi positivi.
 
-Possibile domanda: "In quali scenari aziendali privilegiereste la precision rispetto al recall, o viceversa?"
+Domanda da proporre al pubblico:
+“In quali scenari aziendali privilegereste la precision rispetto al recall, o viceversa?”
 -->
 
 ---
@@ -513,17 +647,27 @@ Possibile domanda: "In quali scenari aziendali privilegiereste la precision risp
 - 🔄 Essenziale per comprendere il comportamento del modello oltre le metriche aggregate
 
 <!-- 
-Questa slide illustra la matrice di confusione, uno strumento fondamentale per l'analisi degli errori.
+Commento speaker:
+Questa slide spiega la matrice di confusione, uno strumento fondamentale per analizzare 
+gli errori di un classificatore. La confusion matrix ci mostra come le previsioni del modello 
+si confrontano con la realtà, andando oltre le metriche aggregate come accuracy o F1.
 
-Punti da enfatizzare:
-- La confusion matrix offre una visione completa delle performance del classificatore
-- Permette di identificare classi problematiche (spesso confuse tra loro)
-- È particolarmente importante con classi sbilanciate
-- Fornisce insights qualitativi oltre alle metriche quantitative
+È utile perché ci permette di individuare classi problematiche, 
+cioè quelle che il modello tende a confondere più spesso, 
+e diventa particolarmente preziosa quando lavoriamo con classi sbilanciate.
 
-Esempio concreto: "Una confusion matrix potrebbe rivelare che il nostro classificatore di notizie confonde spesso 'Tecnologia' con 'Scienza', ma raramente con 'Sport', suggerendo la necessità di migliorare la distinzione tra le prime due."
+Oltre a dare numeri, fornisce insights qualitativi 
+che possono guidare interventi mirati per migliorare il modello.
 
-Possibile domanda: "Come utilizzereste le informazioni di una confusion matrix per migliorare un classificatore esistente?"
+Esempio pratico:
+“Una confusion matrix su un classificatore di notizie 
+potrebbe rivelare che ‘Tecnologia’ viene spesso confusa con ‘Scienza’, 
+ma quasi mai con ‘Sport’, suggerendo di concentrarci 
+su feature che distinguano meglio i primi due domini.”
+
+Domanda da proporre al pubblico:
+“Come utilizzereste le informazioni di una confusion matrix 
+per migliorare un classificatore esistente?”
 -->
 
 ---
@@ -541,25 +685,29 @@ Possibile domanda: "Come utilizzereste le informazioni di una confusion matrix p
 - 🔄 Utile per confrontare modelli e scegliere soglie di decisione
 
 <!-- 
-Questa slide spiega due metriche avanzate per valutare modelli di classificazione: la curva ROC e l’AUC.
-Sono strumenti fondamentali soprattutto quando abbiamo classi sbilanciate o quando dobbiamo prendere decisioni delicate sul compromesso tra errori di tipo diverso.
+Commento speaker:
+Questa slide spiega due metriche avanzate per valutare i modelli di classificazione: 
+la curva ROC e l’AUC. 
+Sono strumenti fondamentali, soprattutto quando lavoriamo con classi sbilanciate 
+o quando dobbiamo prendere decisioni delicate 
+sul compromesso tra diversi tipi di errore.
 
-⸻
+La curva ROC (Receiver Operating Characteristic) 
+è un grafico che mostra il trade-off tra il True Positive Rate (la percentuale di positivi corretti sul totale dei positivi reali) 
+e il False Positive Rate (la percentuale di negativi sbagliati sul totale dei negativi reali). 
+Si costruisce calcolando questi valori a tante soglie diverse 
+e ci permette di vedere quanto guadagniamo in sensibilità 
+al prezzo di più falsi positivi.
 
-✅ Curva ROC (Receiver Operating Characteristic)
-	•	È un grafico che mostra il rapporto tra:
-	•	True Positive Rate (TPR) → la percentuale di veri positivi trovati sul totale dei positivi reali.
-	•	False Positive Rate (FPR) → la percentuale di falsi positivi sul totale dei negativi reali.
-	•	Si ottiene calcolando TPR e FPR a tante soglie diverse (non solo a 0,5) e tracciando il loro andamento.
-	•	Permette di vedere il trade-off: aumentando la sensibilità (TPR), spesso si pagherà con un aumento dei falsi positivi (FPR).
+L’AUC, cioè l’Area Under the Curve, 
+è il numero che riassume la curva in un solo valore tra 0 e 1. 
+Un AUC di 0,5 significa che il modello è casuale, 
+mentre 1 indica un modello perfetto. 
+In pratica, più è alto l’AUC, meglio il modello distingue tra classi positive e negative.
 
-⸻
-
-✅ AUC (Area Under the Curve)
-	•	È l’area sotto la curva ROC → un numero unico tra 0 e 1.
-	•	Se AUC = 0,5 → modello casuale (come lanciare una moneta).
-	•	Se AUC = 1 → modello perfetto.
-	•	In pratica: più l’AUC è alto, più il modello è capace di distinguere tra classi positive e negative.
+Domanda possibile per il pubblico:
+“Quando e perché preferireste usare AUC e curva ROC invece di metriche come accuracy 
+per confrontare i modelli?”
 -->
 
 ---
