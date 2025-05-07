@@ -456,6 +456,12 @@ Domanda storica: "Perché pensate che i primi approcci all'NLP si siano concentr
 
 ---
 
+# Gli inizi: approcci basati su regole (1950-1980) 📚
+
+![alt text fit](images/IBM-Georgetown.jpg)
+
+---
+
 # L'era statistica (1980-2010) 📊
 
 - Rivoluzione: approcci basati su probabilità invece che regole
@@ -474,6 +480,25 @@ Posso citare il famoso commento di Frederick Jelinek di IBM: "Every time I fire 
 
 Domanda tecnica: "Quali limitazioni intrinseche pensate possano avere i modelli statistici nel catturare la complessità del linguaggio naturale?"
 -->
+
+---
+
+# L'era statistica (1980-2010) 📊
+
+✅ T9 (predictive text) sui cellulari: usa modelli n-gram per prevedere la parola più probabile mentre scrivi.
+✅ Correttore ortografico (tipo Word): basato su frequenze di parole e contesto per suggerire correzioni.
+✅ Google Search (prima generazione): completamento automatico basato su probabilità di query comuni.
+✅ Traduzione automatica IBM: modelli statistici per allineare frasi tra lingue diverse.
+✅ Speech recognition primi anni: riconoscimento vocale basato su modelli nascosti di Markov.
+
+
+<!-- «Qui stiamo parlando di quello che viene chiamato l’era statistica, tra il 1980 e il 2010. È un momento importante perché si passa da approcci basati su regole scritte a mano — tipo “se vedi questa parola fai così” — ad approcci basati su probabilità.
+
+Per esempio, si iniziano a usare modelli come gli n-gram, che guardano alle sequenze di parole per prevedere quella successiva, oppure i modelli nascosti di Markov, che tengono conto degli stati nascosti dietro le sequenze osservate.
+
+Un’applicazione famosa è la traduzione automatica statistica di IBM, dove il sistema non ragiona più per regole grammaticali ma calcola le probabilità che una frase in inglese corrisponda a una frase in francese.
+
+E poi, soprattutto, si comincia a imparare dai dati, dai grandi corpora di testo, cioè enormi raccolte di testi, anziché scrivere tutto a mano. Questo porta a un salto in avanti per tante applicazioni, come il T9 dei vecchi cellulari, il correttore automatico, i motori di ricerca, i primi sistemi di riconoscimento vocale… insomma, una vera rivoluzione!» -->
 
 ---
 

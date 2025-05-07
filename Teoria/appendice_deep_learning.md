@@ -105,17 +105,6 @@ L'implementazione di modelli di Deep Learning è facilitata da numerosi framewor
 *   **PyTorch (Facebook/Meta)**: Un framework popolare, noto per la sua flessibilità e l'approccio "pythonico", particolarmente apprezzato nella comunità di ricerca.
 *   **Hugging Face Transformers**: Una libreria che fornisce migliaia di modelli pre-addestrati (principalmente Transformer) e strumenti per l'NLP, costruita su PyTorch e TensorFlow.
 
-## 8. Considerazioni Etiche e Limitazioni
-
-Come per l'NLP in generale, anche il Deep Learning solleva importanti questioni etiche:
-
-*   **Bias**: I modelli possono apprendere e amplificare i bias presenti nei dati di addestramento.
-*   **Trasparenza e Interpretabilità**: Le reti neurali profonde sono spesso considerate "scatole nere", rendendo difficile capire come prendono le loro decisioni.
-*   **Costi computazionali ed energetici**: L'addestramento di modelli di grandi dimensioni richiede risorse significative.
-*   **Uso improprio**: Possibilità di generare disinformazione (deepfakes, testo generato artificialmente) o per scopi di sorveglianza.
-
-È fondamentale approcciare lo sviluppo e l'applicazione del Deep Learning con consapevolezza e responsabilità.
-
 ## Conclusione dell'Appendice
 
 Questa appendice ha fornito un'introduzione ai concetti fondamentali del Deep Learning. Comprendere queste basi è utile per apprezzare appieno le capacità e il funzionamento dei modelli NLP avanzati, come i Transformer, che sono al centro di questo corso. Il Deep Learning è un campo in rapida evoluzione, e le tecniche qui descritte sono solo la punta dell'iceberg di un mondo vasto e affascinante.

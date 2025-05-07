@@ -226,9 +226,3 @@ Speaker Notes:
 L'impatto del Deep Learning sull'NLP è stato enorme. Tecniche come Word2Vec, che abbiamo già visto, usano reti neurali per creare quelle rappresentazioni dense di parole (embeddings) che catturano il significato. I modelli Sequence-to-Sequence, spesso composti da un encoder e un decoder, sono la base per la traduzione automatica e il riassunto. E, naturalmente, l'architettura Transformer, che è il cuore di questo corso, è un prodotto del Deep Learning e ha portato a modelli incredibilmente potenti come BERT e GPT.
 -->
 
----
-
-## 8. Strumenti e Framework Popolari
-
--   **TensorFlow (Google)**: Ecosistema completo, con Keras (API di alto livello).
--   **PyTorch (Meta)**: Flessibile, 
