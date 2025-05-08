@@ -36,7 +36,7 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
-;--marpit-advanced-background-split:40%;" data-marpit-pagination-total="28" data-marpit-advanced-background="background" data-marpit-advanced-background-split="right"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;slides/transformer/images/transformer_blackbox.avif&quot;);background-size:80%;"></figure></div></section></foreignObject><foreignObject width="60%" height="720"><section id="1" data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
+;--marpit-advanced-background-split:40%;" data-marpit-pagination-total="29" data-marpit-advanced-background="background" data-marpit-advanced-background-split="right"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;images/transformer_blackbox.avif&quot;);background-size:80%;"></figure></div></section></foreignObject><foreignObject width="60%" height="720"><section id="1" data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
   font-size: 1.5em;
 }
 h1 {
@@ -64,8 +64,20 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
-;--marpit-advanced-background-split:40%;" data-marpit-pagination-total="28" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right">
-<h1 id="architettura-transformer-e-implementazione-di-gpt-from-scratch-%F0%9F%9A%80">Architettura Transformer e Implementazione di GPT from Scratch <img class="emoji" draggable="false" alt="🚀" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f680.svg" data-marp-twemoji=""/></h1>
+;--marpit-advanced-background-split:40%;" data-marpit-pagination-total="29" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right">
+<h1 id="transformer-e-gpt-dalla-teoria-allimplementazione-%F0%9F%9A%80">Transformer e GPT: Dalla teoria all'implementazione <img class="emoji" draggable="false" alt="🚀" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f680.svg" data-marp-twemoji=""/></h1>
+
+<p><strong>Obiettivi della presentazione:</strong></p>
+<ul>
+<li>Capire i concetti chiave dei Transformer</li>
+<li>Analizzare i componenti fondamentali dell'architettura</li>
+<li>Approfondire l'architettura GPT e la sua implementazione</li>
+<li>Vedere esempi pratici di codice e ottimizzazioni</li>
+<li>Confrontare BERT e GPT e discutere applicazioni</li>
+</ul>
+<blockquote>
+<p>Chi ha già usato modelli come ChatGPT o BERT? In che contesti?</p>
+</blockquote>
 <footer>Corso NLP - Appendice: Transformer e GPT</footer>
 </section>
 </foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
@@ -82,7 +94,7 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
-" lang="en-US" data-marpit-pagination="1" style="" data-marpit-pagination-total="28" data-marpit-advanced-background="pseudo" data-marpit-advanced-background-split="right"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="2" data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
+" lang="en-US" data-marpit-pagination="1" style="" data-marpit-pagination-total="29" data-marpit-advanced-background="pseudo" data-marpit-advanced-background-split="right"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="2" data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
   font-size: 1.5em;
 }
 h1 {
@@ -110,14 +122,17 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
-;" data-marpit-pagination-total="28">
-<h2 id="perch%C3%A9-i-transformer-hanno-rivoluzionato-lnlp-%F0%9F%A4%94">Perché i Transformer hanno rivoluzionato l'NLP? <img class="emoji" draggable="false" alt="🤔" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f914.svg" data-marp-twemoji=""/></h2>
+;" data-marpit-pagination-total="29">
+<h2 id="perch%C3%A9-i-transformer-hanno-rivoluzionato-lnlp">Perché i Transformer hanno rivoluzionato l'NLP?</h2>
 <ul>
-<li><strong>Parallelizzazione completa</strong> vs elaborazione sequenziale delle RNN</li>
-<li><strong>Self-attention</strong>: cattura dipendenze a lungo termine direttamente</li>
-<li><strong>Rappresentazioni posizionali</strong> esplicite</li>
-<li><strong>Architettura scalabile</strong> per modelli sempre più grandi</li>
+<li>Elaborazione <strong>parallela</strong> delle sequenze (non più sequenziale come le RNN)</li>
+<li><strong>Self-attention</strong>: relazioni dirette tra tutte le parole della sequenza</li>
+<li>Encoding posizionale esplicito per mantenere l’ordine</li>
+<li><strong>Scalabilità</strong>: modelli sempre più grandi e potenti</li>
 </ul>
+<blockquote>
+<p>Domanda: Quali problemi delle RNN vengono superati dai Transformer?</p>
+</blockquote>
 <footer>Corso NLP - Appendice: Transformer e GPT</footer>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="3" data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
@@ -148,18 +163,15 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
-;" data-marpit-pagination-total="28">
-<h2 id="quiz-cosa-rende-speciale-larchitettura-transformer-%F0%9F%A7%A9">Quiz: Cosa rende speciale l'architettura Transformer? <img class="emoji" draggable="false" alt="🧩" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f9e9.svg" data-marp-twemoji=""/></h2>
-<div style="display: flex; justify-content: space-between;">
-<div style="width: 48%;">
-<p><strong>A)</strong> Utilizza solo reti convoluzionali<br />
-<strong>B)</strong> Processa sequenze elemento per elemento</p>
-</div>
-<div style="width: 48%;">
-<p><strong>C)</strong> Si basa sul meccanismo di self-attention<br />
-<strong>D)</strong> Richiede meno dati per l'addestramento</p>
-</div>
-</div>
+;" data-marpit-pagination-total="29">
+<h2 id="quiz-cosa-rende-speciale-i-transformer-%F0%9F%A7%A9">Quiz: Cosa rende speciale i Transformer? <img class="emoji" draggable="false" alt="🧩" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f9e9.svg" data-marp-twemoji=""/></h2>
+<p>A) Usano solo reti convoluzionali<br />
+B) Processano sequenze elemento per elemento<br />
+C) Si basano sul meccanismo di self-attention<br />
+D) Richiedono meno dati per l’addestramento</p>
+<blockquote>
+<p>Qual è la risposta corretta? Perché?</p>
+</blockquote>
 <footer>Corso NLP - Appendice: Transformer e GPT</footer>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
@@ -190,7 +202,7 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
-;--marpit-advanced-background-split:50%;" data-marpit-pagination-total="28" data-marpit-advanced-background="background" data-marpit-advanced-background-split="right"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;slides/transformer/images/encoder_decoder_structure.avif&quot;);background-size:90%;"></figure></div></section></foreignObject><foreignObject width="50%" height="720"><section id="4" data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
+;--marpit-advanced-background-split:50%;" data-marpit-pagination-total="29" data-marpit-advanced-background="background" data-marpit-advanced-background-split="right"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;images/encoder_decoder_structure.avif&quot;);background-size:90%;"></figure></div></section></foreignObject><foreignObject width="50%" height="720"><section id="4" data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
   font-size: 1.5em;
 }
 h1 {
@@ -218,16 +230,19 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
-;--marpit-advanced-background-split:50%;" data-marpit-pagination-total="28" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right">
-<h2 id="componenti-principali-dellarchitettura-transformer-%F0%9F%A7%B1">Componenti principali dell'architettura Transformer <img class="emoji" draggable="false" alt="🧱" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f9f1.svg" data-marp-twemoji=""/></h2>
+;--marpit-advanced-background-split:50%;" data-marpit-pagination-total="29" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right">
+<h2 id="struttura-generale-del-transformer">Struttura generale del Transformer</h2>
 
 <ul>
-<li><strong>Encoder</strong>: comprende il contesto di input</li>
-<li><strong>Decoder</strong>: genera output sequenziale</li>
-<li><strong>Self-Attention</strong>: il cuore del modello</li>
-<li><strong>Feed-Forward Networks</strong>: elaborazione per posizione</li>
-<li><strong>Layer Normalization e Residual Connections</strong>: stabilità</li>
+<li><strong>Encoder</strong>: elabora il contesto dell’input (usato in BERT)</li>
+<li><strong>Decoder</strong>: genera una sequenza in modo autoregressivo (usato in GPT)</li>
+<li><strong>Self-attention</strong>: permette interazione tra tutte le posizioni</li>
+<li><strong>Feed-Forward</strong>: trasforma le rappresentazioni posizione per posizione</li>
+<li><strong>LayerNorm &amp; Residual</strong>: stabilità e profondità</li>
 </ul>
+<blockquote>
+<p>Secondo voi, qual è il componente più determinante per il successo dei Transformer?</p>
+</blockquote>
 <footer>Corso NLP - Appendice: Transformer e GPT</footer>
 </section>
 </foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
@@ -244,7 +259,7 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
-" lang="en-US" data-marpit-pagination="4" style="" data-marpit-pagination-total="28" data-marpit-advanced-background="pseudo" data-marpit-advanced-background-split="right"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="5" data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
+" lang="en-US" data-marpit-pagination="4" style="" data-marpit-pagination-total="29" data-marpit-advanced-background="pseudo" data-marpit-advanced-background-split="right"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="5" data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
   font-size: 1.5em;
 }
 h1 {
@@ -272,46 +287,46 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
-;" data-marpit-pagination-total="28">
-<h2 id="componenti-principali-dellarchitettura-transformer-%F0%9F%A7%B1-1">Componenti principali dell'architettura Transformer <img class="emoji" draggable="false" alt="🧱" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f9f1.svg" data-marp-twemoji=""/></h2>
+;" data-marpit-pagination-total="29">
+<h2 id="tabella-dei-componenti-chiave">Tabella dei componenti chiave</h2>
 <table>
 <thead>
 <tr>
 <th>Componente</th>
 <th>Descrizione</th>
-<th>Scopo</th>
+<th>Scopo principale</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td>Attenzione Multi-Head</td>
-<td>Meccanismo per concentrarsi su diverse parti dell'input</td>
-<td>Cattura le dipendenze tra diverse posizioni nella sequenza</td>
+<td>Multi-Head Attention</td>
+<td>Più &quot;canali&quot; di attenzione</td>
+<td>Cattura molteplici relazioni tra posizioni</td>
 </tr>
 <tr>
-<td>Reti Feed-Forward</td>
-<td>Strati completamente connessi per posizione</td>
-<td>Trasforma gli output dell'attenzione, aggiungendo complessità</td>
+<td>Feed-Forward Network</td>
+<td>Strati densi per posizione</td>
+<td>Aumenta la complessità e la capacità del modello</td>
 </tr>
 <tr>
-<td>Codifica Posizionale</td>
-<td>Aggiunge informazioni posizionali agli embedding</td>
-<td>Fornisce il contesto dell'ordine della sequenza al modello</td>
+<td>Positional Encoding</td>
+<td>Informazione di posizione</td>
+<td>Permette di distinguere l’ordine dei token</td>
 </tr>
 <tr>
-<td>Normalizzazione Layer</td>
-<td>Normalizza gli input di ogni sotto-strato</td>
-<td>Stabilizza l'addestramento, migliora la convergenza</td>
+<td>Layer Normalization</td>
+<td>Normalizza ogni sotto-strato</td>
+<td>Stabilizza e accelera l’addestramento</td>
 </tr>
 <tr>
-<td>Connessioni Residue</td>
-<td>Scorciatoie tra gli strati</td>
-<td>Aiuta nell'addestramento di reti più profonde riducendo i problemi di gradiente</td>
+<td>Residual Connection</td>
+<td>Collegamenti diretti tra strati</td>
+<td>Facilita il flusso del gradiente nelle reti profonde</td>
 </tr>
 <tr>
 <td>Dropout</td>
-<td>Azzera casualmente alcune connessioni della rete</td>
-<td>Previene l'overfitting regolarizzando il modello</td>
+<td>Disattiva connessioni in modo casuale</td>
+<td>Riduce l’overfitting</td>
 </tr>
 </tbody>
 </table>
@@ -345,9 +360,10 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
-;" data-marpit-pagination-total="28">
-<h2 id="embedding">Embedding</h2>
+;" data-marpit-pagination-total="29">
+<h2 id="embedding-rappresentare-i-token-come-vettori">Embedding: rappresentare i token come vettori</h2>
 <p><img src="images/embedding.avif" alt="alt text" /></p>
+<p>Ogni parola/token viene trasformato in un vettore continuo (embedding) che il modello può elaborare.</p>
 <footer>Corso NLP - Appendice: Transformer e GPT</footer>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
@@ -378,7 +394,7 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
-;--marpit-advanced-background-split:40%;" data-marpit-pagination-total="28" data-marpit-advanced-background="background" data-marpit-advanced-background-split="right"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;images/Multi_Head_Attention.avif&quot;);background-size:90%;"></figure></div></section></foreignObject><foreignObject width="60%" height="720"><section id="7" data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
+;--marpit-advanced-background-split:40%;" data-marpit-pagination-total="29" data-marpit-advanced-background="background" data-marpit-advanced-background-split="right"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;images/Multi_Head_Attention.avif&quot;);background-size:90%;"></figure></div></section></foreignObject><foreignObject width="60%" height="720"><section id="7" data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
   font-size: 1.5em;
 }
 h1 {
@@ -406,16 +422,18 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
-;--marpit-advanced-background-split:40%;" data-marpit-pagination-total="28" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right">
-<h2 id="self-attention-il-cuore-del-transformer-%E2%9D%A4%EF%B8%8F">Self-Attention: Il cuore del Transformer <img class="emoji" draggable="false" alt="❤️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/2764.svg" data-marp-twemoji=""/></h2>
+;--marpit-advanced-background-split:40%;" data-marpit-pagination-total="29" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right">
+<h2 id="il-cuore-del-transformer-self-attention-%E2%9D%A4%EF%B8%8F">Il cuore del Transformer: Self-Attention <img class="emoji" draggable="false" alt="❤️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/2764.svg" data-marp-twemoji=""/></h2>
 
-<h3 id="query-key-e-value">Query, Key e Value</h3>
-<p>Per ogni elemento della sequenza:</p>
+<p><strong>Query, Key, Value per ogni token:</strong></p>
 <ul>
-<li><strong>Query (Q)</strong>: cosa l'elemento &quot;sta cercando&quot;</li>
-<li><strong>Key (K)</strong>: cosa l'elemento &quot;offre&quot; agli altri</li>
-<li><strong>Value (V)</strong>: contenuto informativo dell'elemento</li>
+<li><strong>Query (Q):</strong> Cosa sta cercando il token?</li>
+<li><strong>Key (K):</strong> Cosa offre agli altri token?</li>
+<li><strong>Value (V):</strong> Qual è il contenuto da trasmettere?</li>
 </ul>
+<blockquote>
+<p>Come aiuta questo meccanismo a cogliere relazioni tra parole anche lontane nella frase?</p>
+</blockquote>
 <footer>Corso NLP - Appendice: Transformer e GPT</footer>
 </section>
 </foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
@@ -432,7 +450,7 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
-" lang="en-US" data-marpit-pagination="7" style="" data-marpit-pagination-total="28" data-marpit-advanced-background="pseudo" data-marpit-advanced-background-split="right"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
+" lang="en-US" data-marpit-pagination="7" style="" data-marpit-pagination-total="29" data-marpit-advanced-background="pseudo" data-marpit-advanced-background-split="right"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
   font-size: 1.5em;
 }
 h1 {
@@ -460,7 +478,7 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
-;--marpit-advanced-background-split:40%;" data-marpit-pagination-total="28" data-marpit-advanced-background="background" data-marpit-advanced-background-split="right"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;slides/transformer/images/softmax_adjusted_scores.avif&quot;);background-size:90%;"></figure></div></section></foreignObject><foreignObject width="60%" height="720"><section id="8" data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
+;--marpit-advanced-background-split:40%;" data-marpit-pagination-total="29" data-marpit-advanced-background="background" data-marpit-advanced-background-split="right"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;images/softmax_adjusted_scores.avif&quot;);background-size:90%;"></figure></div></section></foreignObject><foreignObject width="60%" height="720"><section id="8" data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
   font-size: 1.5em;
 }
 h1 {
@@ -488,14 +506,20 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
-;--marpit-advanced-background-split:40%;" data-marpit-pagination-total="28" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right">
-<h2 id="calcolo-dellattenzione-in-4-passaggi-%F0%9F%A7%AE">Calcolo dell'attenzione in 4 passaggi <img class="emoji" draggable="false" alt="🧮" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f9ee.svg" data-marp-twemoji=""/></h2>
+;--marpit-advanced-background-split:40%;" data-marpit-pagination-total="29" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right">
+<h2 id="calcolo-dellattenzione-i-4-step-chiave">Calcolo dell'attenzione: i 4 step chiave</h2>
 <ol>
-<li><strong>Calcolo dei punteggi</strong>: <code>Scores = Q * K^T</code></li>
-<li><strong>Scaling</strong>: <code>Scores_scaled = Scores / √d_k</code></li>
-<li><strong>Softmax</strong>: <code>Weights = softmax(Scores_scaled)</code></li>
-<li><strong>Aggregazione pesata</strong>: <code>Output = Weights * V</code></li>
+<li><strong>Scores = Q × Kᵗ</strong></li>
+<li><strong>Scaling:</strong> Scores / √dₖ</li>
+<li><strong>Softmax:</strong> pesi di attenzione</li>
+<li><strong>Output:</strong> somma pesata dei Value</li>
 </ol>
+
+<blockquote>
+<p>Perché dividiamo per √dₖ? Cosa accadrebbe senza scaling?</p>
+</blockquote>
+<p><strong>Multi-Head Attention:</strong><br />
+Più &quot;teste&quot; di attenzione in parallelo → ogni testa può imparare relazioni diverse (es. sintattiche, semantiche, a lungo termine).</p>
 <footer>Corso NLP - Appendice: Transformer e GPT</footer>
 </section>
 </foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
@@ -512,7 +536,7 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
-" lang="en-US" data-marpit-pagination="8" style="" data-marpit-pagination-total="28" data-marpit-advanced-background="pseudo" data-marpit-advanced-background-split="right"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
+" lang="en-US" data-marpit-pagination="8" style="" data-marpit-pagination-total="29" data-marpit-advanced-background="pseudo" data-marpit-advanced-background-split="right"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
   font-size: 1.5em;
 }
 h1 {
@@ -540,7 +564,7 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
-;--marpit-advanced-background-split:50%;" data-marpit-pagination-total="28" data-marpit-advanced-background="background" data-marpit-advanced-background-split="right"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;images/positional-encoding.avif&quot;);background-size:90%;"></figure></div></section></foreignObject><foreignObject width="50%" height="720"><section id="9" data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
+;--marpit-advanced-background-split:50%;" data-marpit-pagination-total="29" data-marpit-advanced-background="background" data-marpit-advanced-background-split="right"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;images/positional-encoding.avif&quot;);background-size:90%;"></figure></div></section></foreignObject><foreignObject width="50%" height="720"><section id="9" data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
   font-size: 1.5em;
 }
 h1 {
@@ -568,8 +592,16 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
-;--marpit-advanced-background-split:50%;" data-marpit-pagination-total="28" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right">
-<h2 id="positional-encoding-aggiungere-informazioni-sulla-posizione-%F0%9F%93%8D">Positional Encoding: Aggiungere informazioni sulla posizione <img class="emoji" draggable="false" alt="📍" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f4cd.svg" data-marp-twemoji=""/></h2>
+;--marpit-advanced-background-split:50%;" data-marpit-pagination-total="29" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right">
+<h2 id="positional-encoding-come-dare-il-senso-dellordine-%F0%9F%93%8D">Positional Encoding: come dare il senso dell’ordine <img class="emoji" draggable="false" alt="📍" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f4cd.svg" data-marp-twemoji=""/></h2>
+
+<ul>
+<li>Il Transformer non &quot;vede&quot; l’ordine dei token: serve un encoding posizionale.</li>
+<li>Si usano funzioni sinusoidali di diverse frequenze per ogni posizione e dimensione.</li>
+</ul>
+<blockquote>
+<p>Perché è utile usare funzioni periodiche invece di numeri sequenziali?</p>
+</blockquote>
 <footer>Corso NLP - Appendice: Transformer e GPT</footer>
 </section>
 </foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
@@ -586,7 +618,7 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
-" lang="en-US" data-marpit-pagination="9" style="" data-marpit-pagination-total="28" data-marpit-advanced-background="pseudo" data-marpit-advanced-background-split="right"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
+" lang="en-US" data-marpit-pagination="9" style="" data-marpit-pagination-total="29" data-marpit-advanced-background="pseudo" data-marpit-advanced-background-split="right"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
   font-size: 1.5em;
 }
 h1 {
@@ -614,7 +646,7 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
-;--marpit-advanced-background-split:50%;" data-marpit-pagination-total="28" data-marpit-advanced-background="background" data-marpit-advanced-background-split="right"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;images/encoder.avif&quot;);background-size:70%;"></figure></div></section></foreignObject><foreignObject width="50%" height="720"><section id="10" data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
+;--marpit-advanced-background-split:50%;" data-marpit-pagination-total="29" data-marpit-advanced-background="background" data-marpit-advanced-background-split="right"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;images/encoder.avif&quot;);background-size:70%;"></figure></div></section></foreignObject><foreignObject width="50%" height="720"><section id="10" data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
   font-size: 1.5em;
 }
 h1 {
@@ -642,14 +674,22 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
-;--marpit-advanced-background-split:50%;" data-marpit-pagination-total="28" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right">
-<h2 id="feed-forward-networks-e-layer-normalization-%F0%9F%94%84">Feed-Forward Networks e Layer Normalization <img class="emoji" draggable="false" alt="🔄" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f504.svg" data-marp-twemoji=""/></h2>
+;--marpit-advanced-background-split:50%;" data-marpit-pagination-total="29" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right">
+<h2 id="feed-forward-e-layer-normalization">Feed-Forward e Layer Normalization</h2>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-python"><span class="hljs-comment"># Feed-Forward Network</span>
 FFN(x) = <span class="hljs-built_in">max</span>(<span class="hljs-number">0</span>, x * W_1 + b_1) * W_2 + b_2
 
 <span class="hljs-comment"># Layer Normalization</span>
 LayerNorm(x) = γ * (x - μ) / √(σ² + ε) + β
 </code></pre>
+<ul>
+<li><strong>Feed-Forward:</strong> trasforma ogni posizione in modo indipendente, aggiunge non-linearità.</li>
+<li><strong>LayerNorm:</strong> normalizza ogni esempio → stabilità anche con sequenze di lunghezza variabile.</li>
+<li><strong>Residual:</strong> somma input e output di ogni blocco.</li>
+</ul>
+<blockquote>
+<p>Perché LayerNorm è preferita a BatchNorm nei Transformer?</p>
+</blockquote>
 <footer>Corso NLP - Appendice: Transformer e GPT</footer>
 </section>
 </foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
@@ -666,7 +706,7 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
-" lang="en-US" data-marpit-pagination="10" style="" data-marpit-pagination-total="28" data-marpit-advanced-background="pseudo" data-marpit-advanced-background-split="right"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
+" lang="en-US" data-marpit-pagination="10" style="" data-marpit-pagination-total="29" data-marpit-advanced-background="pseudo" data-marpit-advanced-background-split="right"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
   font-size: 1.5em;
 }
 h1 {
@@ -694,7 +734,7 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
-;--marpit-advanced-background-split:40%;" data-marpit-pagination-total="28" data-marpit-advanced-background="background" data-marpit-advanced-background-split="right"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;slides/transformer/images/decoder_structure.png&quot;);background-size:90%;"></figure></div></section></foreignObject><foreignObject width="60%" height="720"><section id="11" data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
+;--marpit-advanced-background-split:40%;" data-marpit-pagination-total="29" data-marpit-advanced-background="background" data-marpit-advanced-background-split="right"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;images/decoder_structure.png&quot;);background-size:90%;"></figure></div></section></foreignObject><foreignObject width="60%" height="720"><section id="11" data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
   font-size: 1.5em;
 }
 h1 {
@@ -722,20 +762,17 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
-;--marpit-advanced-background-split:40%;" data-marpit-pagination-total="28" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right">
-<h2 id="architettura-del-decoder-utilizzata-in-gpt-%F0%9F%A7%A0">Architettura del Decoder (utilizzata in GPT) <img class="emoji" draggable="false" alt="🧠" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f9e0.svg" data-marp-twemoji=""/></h2>
+;--marpit-advanced-background-split:40%;" data-marpit-pagination-total="29" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right">
+<h2 id="decoder-transformer-la-base-di-gpt-%F0%9F%A7%A0">Decoder Transformer: la base di GPT <img class="emoji" draggable="false" alt="🧠" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f9e0.svg" data-marp-twemoji=""/></h2>
 
 <ul>
-<li><strong>Masked Self-Attention</strong>: vede solo le posizioni precedenti</li>
-<li><strong>Stack di blocchi identici</strong>:
-<ul>
-<li>Masked multi-head self-attention</li>
-<li>Feed-forward network</li>
-<li>Layer normalization e residual connections</li>
+<li><strong>Masked self-attention:</strong> ogni token vede solo i precedenti</li>
+<li>Stack di blocchi identici: attention, feed-forward, LayerNorm, residual</li>
+<li>Output: layer lineare + softmax (predizione della parola successiva)</li>
 </ul>
-</li>
-<li><strong>Linear Layer e Softmax finale</strong></li>
-</ul>
+<blockquote>
+<p>Perché è fondamentale mascherare le posizioni future nel decoder?</p>
+</blockquote>
 <footer>Corso NLP - Appendice: Transformer e GPT</footer>
 </section>
 </foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
@@ -752,7 +789,7 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
-" lang="en-US" data-marpit-pagination="11" style="" data-marpit-pagination-total="28" data-marpit-advanced-background="pseudo" data-marpit-advanced-background-split="right"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
+" lang="en-US" data-marpit-pagination="11" style="" data-marpit-pagination-total="29" data-marpit-advanced-background="pseudo" data-marpit-advanced-background-split="right"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
   font-size: 1.5em;
 }
 h1 {
@@ -780,7 +817,7 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
-;--marpit-advanced-background-split:30%;" data-marpit-pagination-total="28" data-marpit-advanced-background="background" data-marpit-advanced-background-split="right"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;https://pytorch.org/assets/images/pytorch-logo.png&quot;);background-size:90%;"></figure></div></section></foreignObject><foreignObject width="70%" height="720"><section id="12" data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
+;--marpit-advanced-background-split:30%;" data-marpit-pagination-total="29" data-marpit-advanced-background="background" data-marpit-advanced-background-split="right"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;https://pytorch.org/assets/images/pytorch-logo.png&quot;);background-size:90%;"></figure></div></section></foreignObject><foreignObject width="70%" height="720"><section id="12" data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
   font-size: 1.5em;
 }
 h1 {
@@ -808,15 +845,18 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
-;--marpit-advanced-background-split:30%;" data-marpit-pagination-total="28" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right">
-<h2 id="implementazione-di-un-modello-gpt-from-scratch-%F0%9F%92%BB">Implementazione di un modello GPT from scratch <img class="emoji" draggable="false" alt="💻" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f4bb.svg" data-marp-twemoji=""/></h2>
+;--marpit-advanced-background-split:30%;" data-marpit-pagination-total="29" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right">
+<h2 id="implementazione-gpt-step-by-step-%F0%9F%92%BB">Implementazione GPT step-by-step <img class="emoji" draggable="false" alt="💻" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f4bb.svg" data-marp-twemoji=""/></h2>
 
-<p>Obiettivi:</p>
+<p><strong>Cosa vedremo:</strong></p>
 <ul>
-<li>Comprendere ogni componente dell'architettura</li>
-<li>Implementare un modello GPT semplificato</li>
-<li>Utilizzare PyTorch per l'implementazione</li>
+<li>Analisi dei componenti chiave in codice PyTorch</li>
+<li>Implementazione di un mini-GPT da zero</li>
+<li>Esempio pratico di forward, loss e generazione</li>
 </ul>
+<blockquote>
+<p>Chi ha già usato PyTorch o implementato modelli deep learning da zero?</p>
+</blockquote>
 <footer>Corso NLP - Appendice: Transformer e GPT</footer>
 </section>
 </foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
@@ -833,7 +873,7 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
-" lang="en-US" data-marpit-pagination="12" style="" data-marpit-pagination-total="28" data-marpit-advanced-background="pseudo" data-marpit-advanced-background-split="right"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="13" data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
+" lang="en-US" data-marpit-pagination="12" style="" data-marpit-pagination-total="29" data-marpit-advanced-background="pseudo" data-marpit-advanced-background-split="right"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="13" data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
   font-size: 1.5em;
 }
 h1 {
@@ -861,8 +901,8 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
-;" data-marpit-pagination-total="28">
-<h2 id="setup-e-configurazione-del-modello-%F0%9F%9B%A0%EF%B8%8F">Setup e configurazione del modello <img class="emoji" draggable="false" alt="🛠️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f6e0.svg" data-marp-twemoji=""/></h2>
+;" data-marpit-pagination-total="29">
+<h2 id="setup-e-configurazione-la-classe-di-base">Setup e configurazione: la classe di base</h2>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-python"><span class="hljs-keyword">import</span> math
 <span class="hljs-keyword">import</span> torch
 <span class="hljs-keyword">import</span> torch.nn <span class="hljs-keyword">as</span> nn
@@ -908,8 +948,8 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
-;" data-marpit-pagination-total="28">
-<h2 id="implementazione-del-self-attention-%F0%9F%91%81%EF%B8%8F">Implementazione del Self-Attention <img class="emoji" draggable="false" alt="👁️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f441.svg" data-marp-twemoji=""/></h2>
+;" data-marpit-pagination-total="29">
+<h2 id="self-attention-implementazione-in-pytorch">Self-Attention: implementazione in PyTorch</h2>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">SelfAttention</span>(nn.Module):
     <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, config</span>):
         <span class="hljs-built_in">super</span>().__init__()
@@ -959,8 +999,8 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
-;" data-marpit-pagination-total="28">
-<h2 id="implementazione-del-forward-pass-del-self-attention-%F0%9F%94%84">Implementazione del forward pass del Self-Attention <img class="emoji" draggable="false" alt="🔄" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f504.svg" data-marp-twemoji=""/></h2>
+;" data-marpit-pagination-total="29">
+<h2 id="self-attention-forward-pass">Self-Attention: forward pass</h2>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">forward</span>(<span class="hljs-params">self, x</span>):
     B, T, C = x.size() <span class="hljs-comment"># batch size, sequence length, embedding dimensionality</span>
     
@@ -1011,8 +1051,8 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
-;" data-marpit-pagination-total="28">
-<h2 id="implementazione-del-feed-forward-network-%F0%9F%94%84">Implementazione del Feed-Forward Network <img class="emoji" draggable="false" alt="🔄" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f504.svg" data-marp-twemoji=""/></h2>
+;" data-marpit-pagination-total="29">
+<h2 id="feed-forward-network-codice-essenziale">Feed-Forward Network: codice essenziale</h2>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">FeedForward</span>(nn.Module):
     <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, config</span>):
         <span class="hljs-built_in">super</span>().__init__()
@@ -1056,8 +1096,8 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
-;" data-marpit-pagination-total="28">
-<h2 id="implementazione-di-un-blocco-del-transformer-%F0%9F%A7%B1">Implementazione di un blocco del Transformer <img class="emoji" draggable="false" alt="🧱" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f9f1.svg" data-marp-twemoji=""/></h2>
+;" data-marpit-pagination-total="29">
+<h2 id="un-blocco-transformer-combinare-attention-e-feed-forward">Un blocco Transformer: combinare attention e feed-forward</h2>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">Block</span>(nn.Module):
     <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, config</span>):
         <span class="hljs-built_in">super</span>().__init__()
@@ -1102,8 +1142,8 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
-;" data-marpit-pagination-total="28">
-<h2 id="implementazione-del-modello-gpt-completo-parte-1-%F0%9F%8F%97%EF%B8%8F">Implementazione del modello GPT completo (Parte 1) <img class="emoji" draggable="false" alt="🏗️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f3d7.svg" data-marp-twemoji=""/></h2>
+;" data-marpit-pagination-total="29">
+<h2 id="modello-gpt-completo-struttura-principale">Modello GPT completo: struttura principale</h2>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-python"><span class="hljs-keyword">class</span> <span class="hljs-title class_">GPT</span>(nn.Module):
     <span class="hljs-keyword">def</span> <span class="hljs-title function_">__init__</span>(<span class="hljs-params">self, config</span>):
         <span class="hljs-built_in">super</span>().__init__()
@@ -1156,8 +1196,8 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
-;" data-marpit-pagination-total="28">
-<h2 id="implementazione-del-modello-gpt-completo-parte-2-%F0%9F%8F%97%EF%B8%8F">Implementazione del modello GPT completo (Parte 2) <img class="emoji" draggable="false" alt="🏗️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f3d7.svg" data-marp-twemoji=""/></h2>
+;" data-marpit-pagination-total="29">
+<h2 id="modello-gpt-completo-pesi-e-forward-pass">Modello GPT completo: pesi e forward pass</h2>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">_init_weights</span>(<span class="hljs-params">self, module</span>):
     <span class="hljs-keyword">if</span> <span class="hljs-built_in">isinstance</span>(module, (nn.Linear, nn.Embedding)):
         module.weight.data.normal_(mean=<span class="hljs-number">0.0</span>, std=<span class="hljs-number">0.02</span>)
@@ -1216,8 +1256,8 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
-;" data-marpit-pagination-total="28">
-<h2 id="implementazione-della-generazione-di-testo-%F0%9F%93%9D">Implementazione della generazione di testo <img class="emoji" draggable="false" alt="📝" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f4dd.svg" data-marp-twemoji=""/></h2>
+;" data-marpit-pagination-total="29">
+<h2 id="generazione-di-testo-autoregressiva">Generazione di testo autoregressiva</h2>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">generate</span>(<span class="hljs-params">self, idx, max_new_tokens, temperature=<span class="hljs-number">1.0</span>, top_k=<span class="hljs-literal">None</span></span>):
     <span class="hljs-string">&quot;&quot;&quot;
     Generate new tokens beyond the context provided in idx.
@@ -1281,8 +1321,8 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
-;" data-marpit-pagination-total="28">
-<h2 id="esempio-di-utilizzo-del-modello-%F0%9F%9A%80">Esempio di utilizzo del modello <img class="emoji" draggable="false" alt="🚀" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f680.svg" data-marp-twemoji=""/></h2>
+;" data-marpit-pagination-total="29">
+<h2 id="esempio-pratico-come-usare-il-modello-gpt">Esempio pratico: come usare il modello GPT</h2>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-python"><span class="hljs-comment"># Esempio di configurazione per un modello piccolo</span>
 config = GPTConfig(
     vocab_size=<span class="hljs-number">50257</span>,  <span class="hljs-comment"># Dimensione del vocabolario GPT-2</span>
@@ -1341,8 +1381,8 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
-;" data-marpit-pagination-total="28">
-<h2 id="addestramento-del-modello-%F0%9F%8F%8B%EF%B8%8F%E2%80%8D%E2%99%82%EF%B8%8F">Addestramento del modello <img class="emoji" draggable="false" alt="🏋️‍♂️" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f3cb-fe0f-200d-2642-fe0f.svg" data-marp-twemoji=""/></h2>
+;" data-marpit-pagination-total="29">
+<h2 id="addestrare-il-modello-ciclo-base">Addestrare il modello: ciclo base</h2>
 <pre is="marp-pre" data-auto-scaling="downscale-only"><code class="language-python"><span class="hljs-keyword">def</span> <span class="hljs-title function_">train</span>(<span class="hljs-params">model, data_loader, optimizer, epochs, device</span>):
     model.train()
     <span class="hljs-keyword">for</span> epoch <span class="hljs-keyword">in</span> <span class="hljs-built_in">range</span>(epochs):
@@ -1396,8 +1436,8 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
-;" data-marpit-pagination-total="28">
-<h2 id="ottimizzazioni-e-considerazioni-pratiche-%F0%9F%94%A7">Ottimizzazioni e considerazioni pratiche <img class="emoji" draggable="false" alt="🔧" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f527.svg" data-marp-twemoji=""/></h2>
+;" data-marpit-pagination-total="29">
+<h2 id="ottimizzazioni-pratiche-e-best-practices">Ottimizzazioni pratiche e best practices</h2>
 <ol>
 <li>
 <p><strong>Efficienza computazionale</strong>:</p>
@@ -1457,8 +1497,8 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
-;" data-marpit-pagination-total="28">
-<h2 id="confronto-tra-bert-e-gpt-%F0%9F%94%8D">Confronto tra BERT e GPT <img class="emoji" draggable="false" alt="🔍" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f50d.svg" data-marp-twemoji=""/></h2>
+;" data-marpit-pagination-total="29">
+<h2 id="bert-vs-gpt-differenze-chiave">BERT vs GPT: differenze chiave</h2>
 <table>
 <thead>
 <tr>
@@ -1520,7 +1560,7 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
-;--marpit-advanced-background-split:40%;" data-marpit-pagination-total="28" data-marpit-advanced-background="background" data-marpit-advanced-background-split="right"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;https://media.giphy.com/media/3o7buirYcmV5nSwIRW/giphy.gif&quot;);background-size:80%;"></figure></div></section></foreignObject><foreignObject width="60%" height="720"><section id="25" data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
+;--marpit-advanced-background-split:40%;" data-marpit-pagination-total="29" data-marpit-advanced-background="background" data-marpit-advanced-background-split="right"><div data-marpit-advanced-background-container="true" data-marpit-advanced-background-direction="horizontal"><figure style="background-image:url(&quot;https://media.giphy.com/media/3o7buirYcmV5nSwIRW/giphy.gif&quot;);background-size:80%;"></figure></div></section></foreignObject><foreignObject width="60%" height="720"><section id="25" data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
   font-size: 1.5em;
 }
 h1 {
@@ -1548,8 +1588,17 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
-;--marpit-advanced-background-split:40%;" data-marpit-pagination-total="28" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right">
-<h2 id="domande-%F0%9F%A4%94">Domande <img class="emoji" draggable="false" alt="🤔" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f914.svg" data-marp-twemoji=""/></h2>
+;--marpit-advanced-background-split:40%;" data-marpit-pagination-total="29" data-marpit-advanced-background="content" data-marpit-advanced-background-split="right">
+<h2 id="domande--discussione-finale-%F0%9F%A4%94">Domande &amp; Discussione finale <img class="emoji" draggable="false" alt="🤔" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f914.svg" data-marp-twemoji=""/></h2>
+
+<p><strong>Hai dubbi sull'architettura o l'implementazione?</strong></p>
+<ul>
+<li>Differenze con LSTM/CNN?</li>
+<li>Limiti attuali dei Transformer?</li>
+<li>Come adattare GPT a un task specifico?</li>
+<li>Implicazioni etiche dei LLM?</li>
+<li>Come interpretare cosa &quot;vede&quot; un Transformer?</li>
+</ul>
 <footer>Corso NLP - Appendice: Transformer e GPT</footer>
 </section>
 </foreignObject><foreignObject width="1280" height="720" data-marpit-advanced-background="pseudo"><section data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
@@ -1566,7 +1615,7 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
-" lang="en-US" data-marpit-pagination="25" style="" data-marpit-pagination-total="28" data-marpit-advanced-background="pseudo" data-marpit-advanced-background-split="right"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="26" data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
+" lang="en-US" data-marpit-pagination="25" style="" data-marpit-pagination-total="29" data-marpit-advanced-background="pseudo" data-marpit-advanced-background-split="right"></section></foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="26" data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
   font-size: 1.5em;
 }
 h1 {
@@ -1594,20 +1643,22 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
-;" data-marpit-pagination-total="28">
-<h2 id="conclusione-%F0%9F%8E%AF">Conclusione <img class="emoji" draggable="false" alt="🎯" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f3af.svg" data-marp-twemoji=""/></h2>
+;" data-marpit-pagination-total="29">
+<h2 id="conclusioni-e-takeaway-%F0%9F%8E%AF">Conclusioni e takeaway <img class="emoji" draggable="false" alt="🎯" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f3af.svg" data-marp-twemoji=""/></h2>
 <ul>
-<li>L'architettura Transformer ha rivoluzionato l'NLP grazie al meccanismo di self-attention</li>
-<li>I modelli GPT utilizzano la parte decoder del Transformer per generazione di testo</li>
-<li>L'implementazione from scratch ci ha permesso di comprendere ogni componente</li>
-<li>Questi modelli sono alla base di sistemi come ChatGPT e altri LLM</li>
+<li>Il Transformer ha rivoluzionato l’NLP grazie a self-attention e parallelizzazione</li>
+<li>GPT sfrutta il decoder per la generazione di testo</li>
+<li>L’implementazione da zero aiuta a capire ogni componente</li>
+<li>Questi modelli sono la base di ChatGPT, LLM e molte applicazioni attuali</li>
 </ul>
-<h3 id="riferimenti">Riferimenti</h3>
+<p><strong>Riferimenti principali:</strong></p>
 <ul>
-<li>Vaswani et al. (2017). &quot;Attention is All You Need&quot;</li>
-<li>Radford et al. (2018). &quot;Improving Language Understanding by Generative Pre-Training&quot;</li>
-<li>Radford et al. (2019). &quot;Language Models are Unsupervised Multitask Learners&quot;</li>
+<li>Vaswani et al. (2017), &quot;Attention is All You Need&quot;</li>
+<li>Radford et al. (2018, 2019), &quot;Generative Pre-Training&quot;</li>
 </ul>
+<blockquote>
+<p>Come immagini il futuro dei modelli linguistici? Quali nuove applicazioni potrebbero nascere?</p>
+</blockquote>
 <footer>Corso NLP - Appendice: Transformer e GPT</footer>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="27" data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
@@ -1638,9 +1689,12 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
-;" data-marpit-pagination-total="28">
-<h2 id="hai-mai-pensato-%F0%9F%A4%94">Hai mai pensato... <img class="emoji" draggable="false" alt="🤔" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f914.svg" data-marp-twemoji=""/></h2>
+;" data-marpit-pagination-total="29">
+<h2 id="una-domanda-per-il-futuro-%F0%9F%A4%94">Una domanda per il futuro... <img class="emoji" draggable="false" alt="🤔" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f914.svg" data-marp-twemoji=""/></h2>
 <p>Se un modello GPT potesse scrivere il suo stesso codice, come si implementerebbe?</p>
+<blockquote>
+<p>Riflettiamo: l’IA può contribuire al proprio sviluppo?</p>
+</blockquote>
 <footer>Corso NLP - Appendice: Transformer e GPT</footer>
 </section>
 </foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="28" data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
@@ -1671,133 +1725,62 @@ code {
   padding: 0.2em 0.4em;
   border-radius: 3px;
 }
-;" data-marpit-pagination-total="28">
+;" data-marpit-pagination-total="29">
 <h2 id="risorse-per-approfondire-%F0%9F%93%9A">Risorse per approfondire <img class="emoji" draggable="false" alt="📚" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f4da.svg" data-marp-twemoji=""/></h2>
 <ul>
-<li><a href="http://jalammar.github.io/illustrated-transformer/">The Illustrated Transformer</a> - Jay Alammar</li>
-<li><a href="http://nlp.seas.harvard.edu/2018/04/03/attention.html">The Annotated Transformer</a> - Harvard NLP</li>
-<li><a href="https://github.com/karpathy/minGPT">minGPT</a> - Andrej Karpathy</li>
-<li><a href="https://huggingface.co/docs/transformers/index">Hugging Face Transformers</a> - Documentazione</li>
-<li><a href="https://arxiv.org/abs/1706.03762">Attention Is All You Need</a> - Paper originale</li>
+<li><a href="http://jalammar.github.io/illustrated-transformer/">The Illustrated Transformer</a> (Jay Alammar)</li>
+<li><a href="http://nlp.seas.harvard.edu/2018/04/03/attention.html">The Annotated Transformer</a> (Harvard NLP)</li>
+<li><a href="https://github.com/karpathy/minGPT">minGPT</a> (Andrej Karpathy)</li>
+<li><a href="https://huggingface.co/docs/transformers/index">Hugging Face Transformers</a></li>
+<li><a href="https://arxiv.org/abs/1706.03762">Attention Is All You Need (paper)</a></li>
 </ul>
+<blockquote>
+<p>Consiglio: partite da &quot;The Illustrated Transformer&quot; per una spiegazione visiva!</p>
+</blockquote>
+<footer>Corso NLP - Appendice: Transformer e GPT</footer>
+</section>
+</foreignObject></svg><svg data-marpit-svg="" viewBox="0 0 1280 720"><foreignObject width="1280" height="720"><section id="29" data-paginate="true" data-footer="Corso NLP - Appendice: Transformer e GPT" data-theme="default" data-style="section {
+  font-size: 1.5em;
+}
+h1 {
+  color: #0078D7;
+}
+h2 {
+  color: #00BCF2;
+}
+code {
+  background-color: #f0f0f0;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+}
+" lang="en-US" data-marpit-pagination="29" style="--paginate:true;--footer:Corso NLP - Appendice: Transformer e GPT;--theme:default;--style:section {
+  font-size: 1.5em;
+}
+h1 {
+  color: #0078D7;
+}
+h2 {
+  color: #00BCF2;
+}
+code {
+  background-color: #f0f0f0;
+  padding: 0.2em 0.4em;
+  border-radius: 3px;
+}
+;" data-marpit-pagination-total="29">
+<h2 id="quiz-e-domande-interattive-%F0%9F%8E%B2">Quiz e domande interattive <img class="emoji" draggable="false" alt="🎲" src="https://cdn.jsdelivr.net/gh/jdecked/twemoji@15.1.0/assets/svg/1f3b2.svg" data-marp-twemoji=""/></h2>
+<p><strong>1. Cosa distingue i Transformer dalle RNN?</strong><br />
+<strong>2. Perché serve il positional encoding?</strong><br />
+<strong>3. Qual è il ruolo della maschera nel decoder di GPT?</strong><br />
+<strong>4. In quali task useresti BERT invece di GPT?</strong><br />
+<strong>5. Come influenzano temperature e top_k la generazione di testo?</strong></p>
+<blockquote>
+<p>Discutiamone insieme!</p>
+</blockquote>
 <footer>Corso NLP - Appendice: Transformer e GPT</footer>
 </section>
 <script>!function(){"use strict";const t={h1:{proto:()=>HTMLHeadingElement,attrs:{role:"heading","aria-level":"1"},style:"display: block; font-size: 2em; margin-block-start: 0.67em; margin-block-end: 0.67em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;"},h2:{proto:()=>HTMLHeadingElement,attrs:{role:"heading","aria-level":"2"},style:"display: block; font-size: 1.5em; margin-block-start: 0.83em; margin-block-end: 0.83em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;"},h3:{proto:()=>HTMLHeadingElement,attrs:{role:"heading","aria-level":"3"},style:"display: block; font-size: 1.17em; margin-block-start: 1em; margin-block-end: 1em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;"},h4:{proto:()=>HTMLHeadingElement,attrs:{role:"heading","aria-level":"4"},style:"display: block; margin-block-start: 1.33em; margin-block-end: 1.33em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;"},h5:{proto:()=>HTMLHeadingElement,attrs:{role:"heading","aria-level":"5"},style:"display: block; font-size: 0.83em; margin-block-start: 1.67em; margin-block-end: 1.67em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;"},h6:{proto:()=>HTMLHeadingElement,attrs:{role:"heading","aria-level":"6"},style:"display: block; font-size: 0.67em; margin-block-start: 2.33em; margin-block-end: 2.33em; margin-inline-start: 0px; margin-inline-end: 0px; font-weight: bold;"},span:{proto:()=>HTMLSpanElement},pre:{proto:()=>HTMLElement,style:"display: block; font-family: monospace; white-space: pre; margin: 1em 0; --marp-auto-scaling-white-space: pre;"}},e="data-marp-auto-scaling-wrapper",i="data-marp-auto-scaling-svg",n="data-marp-auto-scaling-container";class s extends HTMLElement{container;containerSize;containerObserver;svg;svgComputedStyle;svgPreserveAspectRatio="xMinYMid meet";wrapper;wrapperSize;wrapperObserver;constructor(){super();const t=t=>([e])=>{const{width:i,height:n}=e.contentRect;this[t]={width:i,height:n},this.updateSVGRect()};this.attachShadow({mode:"open"}),this.containerObserver=new ResizeObserver(t("containerSize")),this.wrapperObserver=new ResizeObserver(((...e)=>{t("wrapperSize")(...e),this.flushSvgDisplay()}))}static get observedAttributes(){return["data-downscale-only"]}connectedCallback(){this.shadowRoot.innerHTML=`\n<style>\n  svg[${i}] { display: block; width: 100%; height: auto; vertical-align: top; }\n  span[${n}] { display: table; white-space: var(--marp-auto-scaling-white-space, nowrap); width: max-content; }\n</style>\n<div ${e}>\n  <svg part="svg" ${i}>\n    <foreignObject><span ${n}><slot></slot></span></foreignObject>\n  </svg>\n</div>\n    `.split(/\n\s*/).join(""),this.wrapper=this.shadowRoot.querySelector(`div[${e}]`)??void 0;const t=this.svg;this.svg=this.wrapper?.querySelector(`svg[${i}]`)??void 0,this.svg!==t&&(this.svgComputedStyle=this.svg?window.getComputedStyle(this.svg):void 0),this.container=this.svg?.querySelector(`span[${n}]`)??void 0,this.observe()}disconnectedCallback(){this.svg=void 0,this.svgComputedStyle=void 0,this.wrapper=void 0,this.container=void 0,this.observe()}attributeChangedCallback(){this.observe()}flushSvgDisplay(){const{svg:t}=this;t&&(t.style.display="inline",requestAnimationFrame((()=>{t.style.display=""})))}observe(){this.containerObserver.disconnect(),this.wrapperObserver.disconnect(),this.wrapper&&this.wrapperObserver.observe(this.wrapper),this.container&&this.containerObserver.observe(this.container),this.svgComputedStyle&&this.observeSVGStyle(this.svgComputedStyle)}observeSVGStyle(t){const e=()=>{const i=(()=>{const e=t.getPropertyValue("--preserve-aspect-ratio");if(e)return e.trim();return`x${(({textAlign:t,direction:e})=>{if(t.endsWith("left"))return"Min";if(t.endsWith("right"))return"Max";if("start"===t||"end"===t){let i="rtl"===e;return"end"===t&&(i=!i),i?"Max":"Min"}return"Mid"})(t)}YMid meet`})();i!==this.svgPreserveAspectRatio&&(this.svgPreserveAspectRatio=i,this.updateSVGRect()),t===this.svgComputedStyle&&requestAnimationFrame(e)};e()}updateSVGRect(){let t=Math.ceil(this.containerSize?.width??0);const e=Math.ceil(this.containerSize?.height??0);void 0!==this.dataset.downscaleOnly&&(t=Math.max(t,this.wrapperSize?.width??0));const i=this.svg?.querySelector(":scope > foreignObject");if(i?.setAttribute("width",`${t}`),i?.setAttribute("height",`${e}`),this.svg&&(this.svg.setAttribute("viewBox",`0 0 ${t} ${e}`),this.svg.setAttribute("preserveAspectRatio",this.svgPreserveAspectRatio),this.svg.style.height=t<=0||e<=0?"0":""),this.container){const t=this.svgPreserveAspectRatio.toLowerCase();this.container.style.marginLeft=t.startsWith("xmid")||t.startsWith("xmax")?"auto":"0",this.container.style.marginRight=t.startsWith("xmi")?"auto":"0"}}}const r=(t,{attrs:e={},style:i})=>class extends t{constructor(...t){super(...t);for(const[t,i]of Object.entries(e))this.hasAttribute(t)||this.setAttribute(t,i);this._shadow()}static get observedAttributes(){return["data-auto-scaling"]}connectedCallback(){this._update()}attributeChangedCallback(){this._update()}_shadow(){if(!this.shadowRoot)try{this.attachShadow({mode:"open"})}catch(t){if(!(t instanceof Error&&"NotSupportedError"===t.name))throw t}return this.shadowRoot}_update(){const t=this._shadow();if(t){const e=i?`<style>:host { ${i} }</style>`:"";let n="<slot></slot>";const{autoScaling:s}=this.dataset;if(void 0!==s){n=`<marp-auto-scaling exportparts="svg:auto-scaling" ${"downscale-only"===s?"data-downscale-only":""}>${n}</marp-auto-scaling>`}t.innerHTML=e+n}}};let o;const a=Symbol();let l;const c="marpitSVGPolyfill:setZoomFactor,",d=Symbol(),h=Symbol();const g=()=>{const t="Apple Computer, Inc."===navigator.vendor,e=t?[u]:[],i={then:e=>(t?(async()=>{if(void 0===l){const t=document.createElement("canvas");t.width=10,t.height=10;const e=t.getContext("2d"),i=new Image(10,10),n=new Promise((t=>{i.addEventListener("load",(()=>t()))}));i.crossOrigin="anonymous",i.src="data:image/svg+xml;charset=utf8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2210%22%20height%3D%2210%22%20viewBox%3D%220%200%201%201%22%3E%3CforeignObject%20width%3D%221%22%20height%3D%221%22%20requiredExtensions%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxhtml%22%3E%3Cdiv%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F1999%2Fxhtml%22%20style%3D%22width%3A%201px%3B%20height%3A%201px%3B%20background%3A%20red%3B%20position%3A%20relative%22%3E%3C%2Fdiv%3E%3C%2FforeignObject%3E%3C%2Fsvg%3E",await n,e.drawImage(i,0,0),l=e.getImageData(5,5,1,1).data[3]<128}return l})().then((t=>{null==e||e(t?[u]:[])})):null==e||e([]),i)};return Object.assign(e,i)};let p,m;function u(t){const e="object"==typeof t&&t.target||document,i="object"==typeof t?t.zoom:t;window[h]||(Object.defineProperty(window,h,{configurable:!0,value:!0}),document.body.style.zoom=1.0001,document.body.offsetHeight,document.body.style.zoom=1,window.addEventListener("message",(({data:t,origin:e})=>{if(e===window.origin)try{if(t&&"string"==typeof t&&t.startsWith(c)){const[,e]=t.split(","),i=Number.parseFloat(e);Number.isNaN(i)||(m=i)}}catch(t){console.error(t)}})));let n=!1;Array.from(e.querySelectorAll("svg[data-marpit-svg]"),(t=>{var e,s,r,o;t.style.transform||(t.style.transform="translateZ(0)");const a=i||m||t.currentScale||1;p!==a&&(p=a,n=a);const l=t.getBoundingClientRect(),{length:c}=t.children;for(let i=0;i<c;i+=1){const n=t.children[i];if(n.getScreenCTM){const t=n.getScreenCTM();if(t){const i=null!==(s=null===(e=n.x)||void 0===e?void 0:e.baseVal.value)&&void 0!==s?s:0,c=null!==(o=null===(r=n.y)||void 0===r?void 0:r.baseVal.value)&&void 0!==o?o:0,d=n.children.length;for(let e=0;e<d;e+=1){const s=n.children[e];if("SECTION"===s.tagName){const{style:e}=s;e.transformOrigin||(e.transformOrigin=`${-i}px ${-c}px`),e.transform=`scale(${a}) matrix(${t.a}, ${t.b}, ${t.c}, ${t.d}, ${t.e-l.left}, ${t.f-l.top}) translateZ(0.0001px)`;break}}}}}})),!1!==n&&Array.from(e.querySelectorAll("iframe"),(({contentWindow:t})=>{null==t||t.postMessage(`${c}${n}`,"null"===window.origin?"*":window.origin)}))}function v({once:t=!1,target:e=document}={}){const i=function(t=document){if(t[d])return t[d];let e=!0;const i=()=>{e=!1,delete t[d]};Object.defineProperty(t,d,{configurable:!0,value:i});let n=[],s=!1;(async()=>{try{n=await g()}finally{s=!0}})();const r=()=>{for(const e of n)e({target:t});s&&0===n.length||e&&window.requestAnimationFrame(r)};return r(),i}(e);return t?(i(),()=>{}):i}p=1,m=void 0;const w=Symbol(),b=(e=document)=>{if("undefined"==typeof window)throw new Error("Marp Core's browser script is valid only in browser context.");if(((e=document)=>{const i=window[a];i||customElements.define("marp-auto-scaling",s);for(const n of Object.keys(t)){const s=`marp-${n}`,a=t[n].proto();(o??(o=!!document.createElement("div",{is:"marp-auto-scaling"}).outerHTML.startsWith("<div is"),o))&&a!==HTMLElement?i||customElements.define(s,r(a,{style:t[n].style}),{extends:n}):(i||customElements.define(s,r(HTMLElement,t[n])),e.querySelectorAll(`${n}[is="${s}"]`).forEach((t=>{t.outerHTML=t.outerHTML.replace(new RegExp(`^<${n}`,"i"),`<${s}`).replace(new RegExp(`</${n}>$`,"i"),`</${s}>`)})))}window[a]=!0})(e),e[w])return e[w];const i=v({target:e}),n=()=>{i(),delete e[w]},l=Object.assign(n,{cleanup:n,update:()=>b(e)});return Object.defineProperty(e,w,{configurable:!0,value:l}),l},y=document.currentScript;b(y?y.getRootNode():document)}();
-</script></foreignObject></svg></div><div class="bespoke-marp-note" data-index="0" tabindex="0"><p>In questa presentazione, esploreremo l'architettura Transformer, che ha rivoluzionato il campo del Natural Language Processing. Introdotta nel 2017 con il paper &quot;Attention is All You Need&quot;, questa architettura ha superato le limitazioni delle reti neurali ricorrenti (RNN) e convoluzionali (CNN), diventando la base per modelli come BERT e GPT.
-
-Vedremo in dettaglio come funziona questa architettura e implementeremo un modello GPT semplificato da zero utilizzando PyTorch. Questo vi darà una comprensione profonda non solo teorica ma anche pratica di come funzionano questi potenti modelli.
-
-Domanda per coinvolgere la classe: Chi di voi ha già utilizzato modelli basati su Transformer come ChatGPT o BERT? Per quali applicazioni?</p></div><div class="bespoke-marp-note" data-index="1" tabindex="0"><p>I Transformer hanno rappresentato una svolta epocale nel campo dell'NLP per diverse ragioni fondamentali.
-
-Prima dei Transformer, le RNN elaboravano il testo parola per parola, in modo sequenziale, rendendo l'addestramento lento e difficile da parallelizzare. I Transformer invece elaborano l'intera sequenza contemporaneamente, permettendo una parallelizzazione massiccia sui GPU.
-
-Il meccanismo di self-attention permette a ogni parola di &quot;guardare&quot; direttamente a tutte le altre parole della sequenza, catturando dipendenze a lungo termine in modo molto più efficace rispetto alle RNN, che spesso soffrivano del problema del &quot;vanishing gradient&quot; con sequenze lunghe.
-
-Poiché non c'è ricorrenza, le informazioni sulla posizione vengono aggiunte esplicitamente attraverso encoding posizionali, permettendo al modello di comprendere l'ordine delle parole.
-
-Infine, l'architettura si è dimostrata incredibilmente scalabile, permettendo di costruire modelli sempre più grandi e potenti, come dimostrato dalla serie GPT.
-
-Domanda per la classe: Quali limitazioni delle RNN avete sperimentato nei vostri progetti di NLP? Come pensate che i Transformer possano superare queste limitazioni?</p></div><div class="bespoke-marp-note" data-index="2" tabindex="0"><p>Questo è un momento interattivo per verificare la comprensione iniziale della classe sull'architettura Transformer.
-
-La risposta corretta è C: Si basa sul meccanismo di self-attention.
-
-Spiegazione delle opzioni:
-A) Falso - I Transformer non utilizzano reti convoluzionali, ma si basano principalmente sul meccanismo di attention.
-B) Falso - A differenza delle RNN, i Transformer processano l'intera sequenza in parallelo, non elemento per elemento.
-C) Vero - Il meccanismo di self-attention è il cuore dell'architettura Transformer.
-D) Falso - I Transformer in realtà brillano con grandi quantità di dati, e i modelli più potenti richiedono enormi dataset di addestramento.
-
-Dopo aver raccolto le risposte, posso chiedere: &quot;Perché pensate che il meccanismo di self-attention sia così importante per l'elaborazione del linguaggio naturale?&quot;</p></div><div class="bespoke-marp-note" data-index="3" tabindex="0"><p>L'architettura Transformer originale è composta da due parti principali: l'encoder e il decoder.
-
-L'encoder comprende il contesto di input, elaborando l'intera sequenza e creando rappresentazioni contestuali per ogni token. È utilizzato principalmente in modelli come BERT.
-
-Il decoder genera output sequenziale in modo autoregressive (una parola alla volta), utilizzando sia l'attenzione sui propri output precedenti che l'attenzione sull'output dell'encoder. È la base di modelli come GPT.
-
-Il meccanismo di self-attention è il cuore del Transformer, permettendo a ogni posizione di interagire con tutte le altre posizioni.
-
-Le reti feed-forward vengono applicate indipendentemente a ciascuna posizione dopo l'attention, aggiungendo non-linearità e aumentando la capacità rappresentativa.
-
-Layer normalization e residual connections sono tecniche che facilitano l'addestramento di reti profonde, migliorando la stabilità e la velocità di convergenza.
-
-Domanda per la classe: Quali di questi componenti pensate sia più cruciale per il successo dei Transformer, e perché?</p></div><div class="bespoke-marp-note" data-index="6" tabindex="0"><p>Il meccanismo di self-attention è il vero cuore pulsante dell'architettura Transformer. Permette al modello di pesare l'importanza di diverse parole in una sequenza quando elabora una parola specifica.
-
-Per ogni elemento della sequenza, vengono calcolati tre vettori attraverso trasformazioni lineari dell'input:
-
-La Query rappresenta ciò che l'elemento &quot;sta cercando&quot; - potete pensarla come una domanda che l'elemento pone al resto della sequenza.
-
-La Key rappresenta ciò che l'elemento &quot;offre&quot; agli altri - è come un'etichetta che descrive il contenuto dell'elemento.
-
-Il Value rappresenta il contenuto informativo effettivo dell'elemento - è ciò che viene effettivamente trasmesso quando l'attenzione si concentra su quell'elemento.
-
-Un'analogia utile è quella di una biblioteca: la Query è la richiesta di un libro, la Key è il titolo o l'indice del libro, e il Value è il contenuto effettivo del libro.
-
-Domanda per stimolare la discussione: Come pensate che questo meccanismo aiuti il modello a catturare relazioni complesse tra parole distanti in una frase?</p></div><div class="bespoke-marp-note" data-index="7" tabindex="0"><p>Il calcolo dell'attenzione avviene in quattro passaggi fondamentali:
-
-Primo, calcoliamo i punteggi di attenzione moltiplicando ogni query per tutte le key (trasposta). Questo ci dice quanto ogni elemento dovrebbe prestare attenzione a tutti gli altri elementi.
-
-Secondo, scaliamo questi punteggi dividendo per la radice quadrata della dimensione delle key. Questo è un trucco importante per stabilizzare i gradienti durante l'addestramento, evitando che i valori diventino troppo grandi.
-
-Terzo, applichiamo la funzione softmax per normalizzare i punteggi, trasformandoli in pesi di attenzione che sommano a 1. Questo ci dà una distribuzione di probabilità su tutti gli elementi della sequenza.
-
-Infine, aggreghiamo i valori (V) pesandoli secondo i pesi di attenzione calcolati. Questo ci dà l'output finale dell'operazione di attenzione.
-
-In forma matriciale, l'intera operazione può essere espressa come:
-Attention(Q, K, V) = softmax(Q * K^T / √d_k) * V
-
-Domanda tecnica per la classe: Perché pensate sia necessario lo scaling dividendo per la radice quadrata della dimensione? Cosa succederebbe senza questo passaggio?
-
-Il Multi-Head Attention è un'estensione potente del meccanismo di self-attention. Invece di eseguire una singola operazione di attenzione, il Transformer utilizza multiple &quot;teste&quot; di attenzione in parallelo.
-
-Ecco come funziona:
-1. Le matrici Q, K e V vengono proiettate h volte (tipicamente 8 o 16) con diverse matrici di proiezione
-2. Per ogni &quot;testa&quot;, viene calcolata l'attenzione separatamente
-3. Gli output delle diverse teste vengono concatenati
-4. Il risultato concatenato viene proiettato linearmente per ottenere l'output finale
-
-Questo approccio permette al modello di catturare diverse relazioni e pattern contemporaneamente. Ogni testa può specializzarsi nell'identificare diversi tipi di relazioni: alcune potrebbero focalizzarsi sulla sintassi, altre sulla semantica, altre ancora su relazioni a lungo termine.
-
-È come avere più persone che leggono lo stesso testo, ognuna concentrandosi su aspetti diversi, e poi combinando le loro intuizioni.
-
-Domanda per la classe: Quali tipi diversi di relazioni linguistiche pensate che le diverse teste di attenzione potrebbero imparare a riconoscere?</p></div><div class="bespoke-marp-note" data-index="8" tabindex="0"><p>Poiché il Transformer processa l'intera sequenza in parallelo, non ha una nozione intrinseca dell'ordine delle parole. Per risolvere questo problema, vengono aggiunti encoding posizionali agli embedding di input.
-
-La formulazione originale utilizza funzioni sinusoidali di diverse frequenze. Per ogni posizione nella sequenza e ogni dimensione nell'embedding, viene calcolato un valore utilizzando funzioni seno e coseno.
-
-Queste funzioni sono state scelte per alcune proprietà interessanti:
-- Permettono al modello di generalizzare a sequenze più lunghe di quelle viste durante l'addestramento
-- Mantengono informazioni sulla distanza relativa tra posizioni
-- Hanno un pattern che il modello può imparare a interpretare
-
-Nel grafico, possiamo vedere come ogni riga rappresenti una dimensione dell'encoding posizionale, e come i valori cambino in modo regolare ma distintivo per ogni posizione.
-
-Domanda per stimolare la riflessione: Perché pensate che sia importante utilizzare funzioni con diverse frequenze per l'encoding posizionale? Cosa succederebbe se usassimo semplicemente numeri sequenziali?</p></div><div class="bespoke-marp-note" data-index="9" tabindex="0"><p>Dopo ogni blocco di attenzione, il Transformer applica una rete feed-forward a ciascuna posizione indipendentemente. Questa è essenzialmente una trasformazione a due strati con attivazione ReLU (o GELU nei modelli più recenti).
-
-La rete feed-forward introduce non-linearità nel modello, aumenta la capacità rappresentativa e permette trasformazioni specifiche per posizione. Potete pensarla come un elaborazione &quot;verticale&quot; dopo l'elaborazione &quot;orizzontale&quot; dell'attenzione.
-
-Per facilitare l'addestramento di reti profonde, il Transformer utilizza due tecniche importanti:
-
-Layer Normalization: Normalizza gli input a ciascun sub-layer, calcolando media e varianza per ogni esempio individualmente. Questo aiuta a stabilizzare l'addestramento.
-
-Residual Connections: Aggiungono l'input di un sub-layer al suo output (x + Sublayer(x)). Questo permette ai gradienti di fluire più facilmente attraverso la rete durante il backpropagation, combattendo il problema del vanishing gradient.
-
-Domanda tecnica: Quali vantaggi offre la Layer Normalization rispetto alla Batch Normalization in questo contesto di elaborazione sequenziale?</p></div><div class="bespoke-marp-note" data-index="10" tabindex="0"><p>I modelli GPT utilizzano solo la parte decoder del Transformer, con alcune modifiche. L'architettura del decoder include:
-
-Masked Self-Attention: A differenza dell'encoder, il decoder utilizza masked self-attention, dove ogni posizione può attendere solo a posizioni precedenti (non future). Questo è essenziale per i modelli autoregressive come GPT, che generano testo una parola alla volta.
-
-Stack di blocchi identici: Ogni blocco contiene masked multi-head self-attention, feed-forward network, layer normalization e residual connections. Nei modelli GPT moderni, questi blocchi possono essere molto numerosi (fino a 96 o più nei modelli più grandi).
-
-Linear Layer e Softmax finale: Trasforma le rappresentazioni finali in distribuzioni di probabilità sul vocabolario, permettendo al modello di predire la parola successiva.
-
-La caratteristica chiave del decoder è la sua natura autoregressive: durante l'addestramento, predice la parola successiva dato il contesto precedente, e durante la generazione, utilizza le parole già generate come contesto per predire la prossima.
-
-Domanda per la classe: Perché pensate che sia necessario mascherare l'attenzione nel decoder per impedire di vedere le posizioni future? Cosa succederebbe se non lo facessimo?</p></div><div class="bespoke-marp-note" data-index="11" tabindex="0"><p>Nella seconda parte della presentazione, passeremo all'implementazione pratica di un modello GPT semplificato utilizzando PyTorch. Questo ci permetterà di comprendere in modo concreto come funziona l'architettura.
-
-L'obiettivo non è creare un modello pronto per la produzione, ma piuttosto fornire una comprensione pratica di come funziona l'architettura. Implementeremo ogni componente del modello, dalla self-attention alla generazione di testo.
-
-Utilizzeremo PyTorch, una delle librerie più popolari per il deep learning, che offre un'API flessibile e intuitiva per la costruzione di modelli neurali.
-
-Questa implementazione ci permetterà di vedere come i concetti teorici che abbiamo discusso si traducono in codice concreto, e come i diversi componenti interagiscono tra loro per formare un modello completo.
-
-Domanda per la classe: Chi ha già esperienza con PyTorch? Chi ha già implementato modelli di deep learning da zero?</p></div><div class="bespoke-marp-note" data-index="12" tabindex="0"><p>Iniziamo con le importazioni necessarie e la definizione della classe di configurazione del nostro modello GPT.
+</script></foreignObject></svg></div><div class="bespoke-marp-note" data-index="0" tabindex="0"><p>MARP slide deck: Transformer e GPT - Appendice Corso NLP</p></div><div class="bespoke-marp-note" data-index="12" tabindex="0"><p>Iniziamo con le importazioni necessarie e la definizione della classe di configurazione del nostro modello GPT.
 
 Importiamo math per alcune operazioni matematiche, torch come libreria principale, nn per i moduli neurali e F per le funzioni di attivazione e altre utility.
 
@@ -1981,44 +1964,5 @@ Le principali differenze possono essere riassunte così:
 
 Entrambi gli approcci hanno i loro punti di forza e sono complementari in molte applicazioni NLP.
 
-Domanda per la classe: In quali scenari applicativi pensate sia più appropriato utilizzare BERT rispetto a GPT, e viceversa? Ci sono casi in cui potrebbero essere utilizzati insieme?</p></div><div class="bespoke-marp-note" data-index="24" tabindex="0"><p>Questo è un momento per aprire la discussione e rispondere a qualsiasi domanda che la classe potrebbe avere sull'architettura Transformer o sull'implementazione di GPT.
-
-Alcune possibili domande da anticipare:
-- Come si confrontano i Transformer con altre architetture come LSTM in termini di prestazioni e efficienza?
-- Quali sono i limiti principali dei modelli Transformer attuali?
-- Come si può adattare un modello pre-addestrato come GPT a un task specifico?
-- Quali sono le considerazioni etiche nell'utilizzo di modelli generativi potenti come GPT?
-- Come si può interpretare o visualizzare cosa ha appreso un modello Transformer?
-
-Questo è anche un buon momento per collegare i concetti teorici che abbiamo discusso con applicazioni pratiche e casi d'uso reali, incoraggiando gli studenti a pensare a come potrebbero utilizzare queste tecnologie nei loro progetti.</p></div><div class="bespoke-marp-note" data-index="25" tabindex="0"><p>In questa presentazione, abbiamo esplorato in dettaglio l'architettura Transformer, con particolare attenzione ai modelli generativi come GPT.
-
-Abbiamo visto come il meccanismo di self-attention permetta ai modelli di catturare dipendenze a lungo termine in modo efficiente, e come l'architettura complessiva faciliti l'addestramento di modelli profondi attraverso tecniche come layer normalization e residual connections.
-
-Abbiamo anche implementato un modello GPT semplificato from scratch utilizzando PyTorch, esplorando ogni componente dell'architettura e come questi componenti interagiscono per creare un potente modello linguistico generativo.
-
-Questa comprensione dettagliata dell'architettura Transformer e della sua implementazione fornisce una base solida per lavorare con modelli linguistici moderni, sia utilizzando implementazioni esistenti che sviluppando soluzioni personalizzate per applicazioni specifiche.
-
-I modelli che abbiamo discusso oggi sono alla base di sistemi come ChatGPT, Bard, Claude e altri Large Language Models che stanno trasformando il modo in cui interagiamo con la tecnologia.
-
-Domanda finale per stimolare la riflessione: Come pensate che questi modelli evolveranno nei prossimi anni? Quali nuove applicazioni o capacità potrebbero emergere?</p></div><div class="bespoke-marp-note" data-index="26" tabindex="0"><p>Questa è una slide leggera e divertente per stimolare la riflessione e alleggerire l'atmosfera dopo la parte tecnica della presentazione.
-
-La domanda è volutamente provocatoria e filosofica: se un modello GPT potesse scrivere il suo stesso codice, come si implementerebbe? Questo apre a riflessioni interessanti su ricorsione, auto-miglioramento e i limiti dell'intelligenza artificiale.
-
-Potrei sviluppare questo concetto dicendo: &quot;In effetti, oggi i modelli come GPT-4 sono già in grado di generare codice complesso, incluso codice per implementare reti neurali. Stiamo entrando in un'era in cui l'IA può contribuire al proprio sviluppo. Questo solleva domande affascinanti sul futuro dell'intelligenza artificiale e sul ruolo degli sviluppatori umani.&quot;
-
-Potrei anche collegare questo alla pratica attuale: &quot;Molti sviluppatori oggi usano già modelli come GitHub Copilot o ChatGPT per aiutarli a scrivere codice. Quanto tempo passerà prima che questi strumenti possano generare implementazioni complete e ottimizzate di modelli complessi come i Transformer?&quot;
-
-Questa slide può generare una discussione interessante sui limiti e le possibilità future dell'IA generativa.</p></div><div class="bespoke-marp-note" data-index="27" tabindex="0"><p>Questa slide fornisce risorse utili per gli studenti che vogliono approfondire l'argomento dopo la lezione.
-
-&quot;The Illustrated Transformer&quot; di Jay Alammar è una risorsa eccellente che spiega visivamente il funzionamento dell'architettura Transformer.
-
-&quot;The Annotated Transformer&quot; di Harvard NLP implementa il Transformer originale con spiegazioni dettagliate.
-
-&quot;minGPT&quot; di Andrej Karpathy è un'implementazione minimalista di GPT in PyTorch, simile a quella che abbiamo visto ma con alcune ottimizzazioni aggiuntive.
-
-La documentazione di Hugging Face Transformers è una risorsa preziosa per chi vuole utilizzare implementazioni pronte all'uso di modelli Transformer.
-
-Il paper originale &quot;Attention Is All You Need&quot; è fondamentale per comprendere le motivazioni e i dettagli dell'architettura.
-
-Potrei aggiungere: &quot;Queste risorse vi permetteranno di approfondire gli aspetti che vi interessano di più e di esplorare implementazioni alternative e ottimizzazioni avanzate. Vi consiglio particolarmente The Illustrated Transformer se preferite spiegazioni visive, e minGPT se volete vedere un'implementazione pulita e ben documentata.&quot;</p></div><script>/*!! License: https://unpkg.com/@marp-team/marp-cli@4.1.2/lib/bespoke.js.LICENSE.txt */
+Domanda per la classe: In quali scenari applicativi pensate sia più appropriato utilizzare BERT rispetto a GPT, e viceversa? Ci sono casi in cui potrebbero essere utilizzati insieme?</p></div><script>/*!! License: https://unpkg.com/@marp-team/marp-cli@4.1.2/lib/bespoke.js.LICENSE.txt */
 !function(){"use strict";function e(e){return e&&e.__esModule&&Object.prototype.hasOwnProperty.call(e,"default")?e.default:e}var t,n,r=(n||(n=1,t={from:function(e,t){var n,r=1===(e.parent||e).nodeType?e.parent||e:document.querySelector(e.parent||e),o=[].filter.call("string"==typeof e.slides?r.querySelectorAll(e.slides):e.slides||r.children,(function(e){return"SCRIPT"!==e.nodeName})),a={},i=function(e,t){return(t=t||{}).index=o.indexOf(e),t.slide=e,t},s=function(e,t){a[e]=(a[e]||[]).filter((function(e){return e!==t}))},c=function(e,t){return(a[e]||[]).reduce((function(e,n){return e&&!1!==n(t)}),!0)},l=function(e,t){o[e]&&(n&&c("deactivate",i(n,t)),n=o[e],c("activate",i(n,t)))},d=function(e,t){var r=o.indexOf(n)+e;c(e>0?"next":"prev",i(n,t))&&l(r,t)},u={off:s,on:function(e,t){return(a[e]||(a[e]=[])).push(t),s.bind(null,e,t)},fire:c,slide:function(e,t){if(!arguments.length)return o.indexOf(n);c("slide",i(o[e],t))&&l(e,t)},next:d.bind(null,1),prev:d.bind(null,-1),parent:r,slides:o,destroy:function(e){c("destroy",i(n,e)),a={}}};return(t||[]).forEach((function(e){e(u)})),n||l(0),u}}),t),o=e(r);const a=document.body,i=(...e)=>history.replaceState(...e),s="",c="presenter",l="next",d=["",c,l],u="bespoke-marp-",f=`data-${u}`,m=(e,{protocol:t,host:n,pathname:r,hash:o}=location)=>{const a=e.toString();return`${t}//${n}${r}${a?"?":""}${a}${o}`},g=()=>a.dataset.bespokeView,p=e=>new URLSearchParams(location.search).get(e),v=(e,t={})=>{const n={location,setter:i,...t},r=new URLSearchParams(n.location.search);for(const t of Object.keys(e)){const n=e[t];"string"==typeof n?r.set(t,n):r.delete(t)}try{n.setter({...window.history.state??{}},"",m(r,n.location))}catch(e){console.error(e)}},h=(()=>{const e="bespoke-marp";try{return localStorage.setItem(e,e),localStorage.removeItem(e),!0}catch{return!1}})(),y=e=>{try{return localStorage.getItem(e)}catch{return null}},b=(e,t)=>{try{return localStorage.setItem(e,t),!0}catch{return!1}},w=e=>{try{return localStorage.removeItem(e),!0}catch{return!1}},x=(e,t)=>{const n="aria-hidden";t?e.setAttribute(n,"true"):e.removeAttribute(n)},k=e=>{e.parent.classList.add(`${u}parent`),e.slides.forEach((e=>e.classList.add(`${u}slide`))),e.on("activate",(t=>{const n=`${u}active`,r=t.slide,o=r.classList,a=!o.contains(n);if(e.slides.forEach((e=>{e.classList.remove(n),x(e,!0)})),o.add(n),x(r,!1),a){const e=`${n}-ready`;o.add(e),document.body.clientHeight,o.remove(e)}}))},$=e=>{let t=0,n=0;Object.defineProperty(e,"fragments",{enumerable:!0,value:e.slides.map((e=>[null,...e.querySelectorAll("[data-marpit-fragment]")]))});const r=r=>void 0!==e.fragments[t][n+r],o=(r,o)=>{t=r,n=o,e.fragments.forEach(((e,t)=>{e.forEach(((e,n)=>{if(null==e)return;const a=t<r||t===r&&n<=o;e.setAttribute(`${f}fragment`,(a?"":"in")+"active");const i=`${f}current-fragment`;t===r&&n===o?e.setAttribute(i,"current"):e.removeAttribute(i)}))})),e.fragmentIndex=o;const a={slide:e.slides[r],index:r,fragments:e.fragments[r],fragmentIndex:o};e.fire("fragment",a)};e.on("next",(({fragment:a=!0})=>{if(a){if(r(1))return o(t,n+1),!1;const a=t+1;e.fragments[a]&&o(a,0)}else{const r=e.fragments[t].length;if(n+1<r)return o(t,r-1),!1;const a=e.fragments[t+1];a&&o(t+1,a.length-1)}})),e.on("prev",(({fragment:a=!0})=>{if(r(-1)&&a)return o(t,n-1),!1;const i=t-1;e.fragments[i]&&o(i,e.fragments[i].length-1)})),e.on("slide",(({index:t,fragment:n})=>{let r=0;if(void 0!==n){const o=e.fragments[t];if(o){const{length:e}=o;r=-1===n?e-1:Math.min(Math.max(n,0),e-1)}}o(t,r)})),o(0,0)},E=document,L=()=>!(!E.fullscreenEnabled&&!E.webkitFullscreenEnabled),S=()=>!(!E.fullscreenElement&&!E.webkitFullscreenElement),P=e=>{e.fullscreen=()=>{L()&&(async()=>{S()?(E.exitFullscreen||E.webkitExitFullscreen)?.call(E):((e=E.body)=>{(e.requestFullscreen||e.webkitRequestFullscreen)?.call(e)})()})()},document.addEventListener("keydown",(t=>{"f"!==t.key&&"F11"!==t.key||t.altKey||t.ctrlKey||t.metaKey||!L()||(e.fullscreen(),t.preventDefault())}))},_=`${u}inactive`,T=(e=2e3)=>({parent:t,fire:n})=>{const r=t.classList,o=e=>n(`marp-${e?"":"in"}active`);let a;const i=()=>{a&&clearTimeout(a),a=setTimeout((()=>{r.add(_),o()}),e),r.contains(_)&&(r.remove(_),o(!0))};for(const e of["mousedown","mousemove","touchend"])document.addEventListener(e,i);setTimeout(i,0)},I=["AUDIO","BUTTON","INPUT","SELECT","TEXTAREA","VIDEO"],M=e=>{e.parent.addEventListener("keydown",(e=>{if(!e.target)return;const t=e.target;(I.includes(t.nodeName)||"true"===t.contentEditable)&&e.stopPropagation()}))},O=e=>{window.addEventListener("load",(()=>{for(const t of e.slides){const e=t.querySelector("marp-auto-scaling, [data-auto-scaling], [data-marp-fitting]");t.setAttribute(`${f}load`,e?"":"hideable")}}))},A=({interval:e=250}={})=>t=>{document.addEventListener("keydown",(e=>{if(" "===e.key&&e.shiftKey)t.prev();else if("ArrowLeft"===e.key||"ArrowUp"===e.key||"PageUp"===e.key)t.prev({fragment:!e.shiftKey});else if(" "!==e.key||e.shiftKey)if("ArrowRight"===e.key||"ArrowDown"===e.key||"PageDown"===e.key)t.next({fragment:!e.shiftKey});else if("End"===e.key)t.slide(t.slides.length-1,{fragment:-1});else{if("Home"!==e.key)return;t.slide(0)}else t.next();e.preventDefault()}));let n,r,o=0;t.parent.addEventListener("wheel",(a=>{let i=!1;const s=(e,t)=>{e&&(i=i||((e,t)=>((e,t)=>{const n="X"===t?"Width":"Height";return e[`client${n}`]<e[`scroll${n}`]})(e,t)&&((e,t)=>{const{overflow:n}=e,r=e[`overflow${t}`];return"auto"===n||"scroll"===n||"auto"===r||"scroll"===r})(getComputedStyle(e),t))(e,t)),e?.parentElement&&s(e.parentElement,t)};if(0!==a.deltaX&&s(a.target,"X"),0!==a.deltaY&&s(a.target,"Y"),i)return;a.preventDefault();const c=Math.sqrt(a.deltaX**2+a.deltaY**2);if(void 0!==a.wheelDelta){if(void 0===a.webkitForce&&Math.abs(a.wheelDelta)<40)return;if(a.deltaMode===a.DOM_DELTA_PIXEL&&c<4)return}else if(a.deltaMode===a.DOM_DELTA_PIXEL&&c<12)return;r&&clearTimeout(r),r=setTimeout((()=>{n=0}),e);const l=Date.now()-o<e,d=c<=n;if(n=c,l||d)return;let u;(a.deltaX>0||a.deltaY>0)&&(u="next"),(a.deltaX<0||a.deltaY<0)&&(u="prev"),u&&(t[u](),o=Date.now())}))},C=(e=`.${u}osc`)=>{const t=document.querySelector(e);if(!t)return()=>{};const n=(e,n)=>{t.querySelectorAll(`[${f}osc=${JSON.stringify(e)}]`).forEach(n)};return L()||n("fullscreen",(e=>e.style.display="none")),h||n("presenter",(e=>{e.disabled=!0,e.title="Presenter view is disabled due to restricted localStorage."})),e=>{t.addEventListener("click",(t=>{if(t.target instanceof HTMLElement){const{bespokeMarpOsc:n}=t.target.dataset;n&&t.target.blur();const r={fragment:!t.shiftKey};"next"===n?e.next(r):"prev"===n?e.prev(r):"fullscreen"===n?e?.fullscreen():"presenter"===n&&e.openPresenterView()}})),e.parent.appendChild(t),e.on("activate",(({index:t})=>{n("page",(n=>n.textContent=`Page ${t+1} of ${e.slides.length}`))})),e.on("fragment",(({index:t,fragments:r,fragmentIndex:o})=>{n("prev",(e=>e.disabled=0===t&&0===o)),n("next",(n=>n.disabled=t===e.slides.length-1&&o===r.length-1))})),e.on("marp-active",(()=>x(t,!1))),e.on("marp-inactive",(()=>x(t,!0))),L()&&(e=>{for(const t of["","webkit"])E.addEventListener(t+"fullscreenchange",e)})((()=>n("fullscreen",(e=>e.classList.toggle("exit",L()&&S())))))}},D=e=>{window.addEventListener("message",(t=>{if(t.origin!==window.origin)return;const[n,r]=t.data.split(":");if("navigate"===n){const[t,n]=r.split(",");let o=Number.parseInt(t,10),a=Number.parseInt(n,10)+1;a>=e.fragments[o].length&&(o+=1,a=0),e.slide(o,{fragment:a})}}))};var N,B,q,K,j,F,V,U={exports:{}},X=(N||(N=1,U.exports=(B=["area","base","br","col","command","embed","hr","img","input","keygen","link","meta","param","source","track","wbr"],q=function(e){return String(e).replace(/[&<>"']/g,(function(e){return"&"+K[e]+";"}))},K={"&":"amp","<":"lt",">":"gt",'"':"quot","'":"apos"},j="dangerouslySetInnerHTML",F={className:"class",htmlFor:"for"},V={},function(e,t){var n=[],r="";t=t||{};for(var o=arguments.length;o-- >2;)n.push(arguments[o]);if("function"==typeof e)return t.children=n.reverse(),e(t);if(e){if(r+="<"+e,t)for(var a in t)!1!==t[a]&&null!=t[a]&&a!==j&&(r+=" "+(F[a]?F[a]:q(a))+'="'+q(t[a])+'"');r+=">"}if(-1===B.indexOf(e)){if(t[j])r+=t[j].__html;else for(;n.length;){var i=n.pop();if(i)if(i.pop)for(var s=i.length;s--;)n.push(i[s]);else r+=!0===V[i]?i:q(i)}r+=e?"</"+e+">":""}return V[r]=!0,r})),U.exports),H=e(X);const R=({children:e})=>H(null,null,...e),W=`${u}presenter-`,J={container:`${W}container`,dragbar:`${W}dragbar-container`,next:`${W}next`,nextContainer:`${W}next-container`,noteContainer:`${W}note-container`,noteWrapper:`${W}note-wrapper`,noteButtons:`${W}note-buttons`,infoContainer:`${W}info-container`,infoPage:`${W}info-page`,infoPageText:`${W}info-page-text`,infoPagePrev:`${W}info-page-prev`,infoPageNext:`${W}info-page-next`,noteButtonsBigger:`${W}note-bigger`,noteButtonsSmaller:`${W}note-smaller`,infoTime:`${W}info-time`,infoTimer:`${W}info-timer`},Y=e=>{const{title:t}=document;document.title="[Presenter view]"+(t?` - ${t}`:"");const n={},r=e=>(n[e]=n[e]||document.querySelector(`.${e}`),n[e]);document.body.appendChild((e=>{const t=document.createElement("div");return t.className=J.container,t.appendChild(e),t.insertAdjacentHTML("beforeend",H(R,null,H("div",{class:J.nextContainer},H("iframe",{class:J.next,src:"?view=next"})),H("div",{class:J.dragbar}),H("div",{class:J.noteContainer},H("div",{class:J.noteWrapper}),H("div",{class:J.noteButtons},H("button",{class:J.noteButtonsSmaller,tabindex:"-1",title:"Smaller notes font size"},"Smaller notes font size"),H("button",{class:J.noteButtonsBigger,tabindex:"-1",title:"Bigger notes font size"},"Bigger notes font size"))),H("div",{class:J.infoContainer},H("div",{class:J.infoPage},H("button",{class:J.infoPagePrev,tabindex:"-1",title:"Previous"},"Previous"),H("span",{class:J.infoPageText}),H("button",{class:J.infoPageNext,tabindex:"-1",title:"Next"},"Next")),H("time",{class:J.infoTime,title:"Current time"}),H("time",{class:J.infoTimer,title:"Timer"})))),t})(e.parent)),(e=>{let t=!1;r(J.dragbar).addEventListener("mousedown",(()=>{t=!0,r(J.dragbar).classList.add("active")})),window.addEventListener("mouseup",(()=>{t=!1,r(J.dragbar).classList.remove("active")})),window.addEventListener("mousemove",(e=>{if(!t)return;const n=e.clientX/document.documentElement.clientWidth*100;r(J.container).style.setProperty("--bespoke-marp-presenter-split-ratio",`${Math.max(0,Math.min(100,n))}%`)})),r(J.nextContainer).addEventListener("click",(()=>e.next()));const n=r(J.next),o=(a=n,(e,t)=>a.contentWindow?.postMessage(`navigate:${e},${t}`,"null"===window.origin?"*":window.origin));var a;n.addEventListener("load",(()=>{r(J.nextContainer).classList.add("active"),o(e.slide(),e.fragmentIndex),e.on("fragment",(({index:e,fragmentIndex:t})=>o(e,t)))}));const i=document.querySelectorAll(".bespoke-marp-note");i.forEach((e=>{e.addEventListener("keydown",(e=>e.stopPropagation())),r(J.noteWrapper).appendChild(e)})),e.on("activate",(()=>i.forEach((t=>t.classList.toggle("active",t.dataset.index==e.slide())))));let s=0;const c=e=>{s=Math.max(-5,s+e),r(J.noteContainer).style.setProperty("--bespoke-marp-note-font-scale",(1.2**s).toFixed(4))},l=()=>c(1),d=()=>c(-1),u=r(J.noteButtonsBigger),f=r(J.noteButtonsSmaller);u.addEventListener("click",(()=>{u.blur(),l()})),f.addEventListener("click",(()=>{f.blur(),d()})),document.addEventListener("keydown",(e=>{"+"===e.key&&l(),"-"===e.key&&d()}),!0),e.on("activate",(({index:t})=>{r(J.infoPageText).textContent=`${t+1} / ${e.slides.length}`}));const m=r(J.infoPagePrev),g=r(J.infoPageNext);m.addEventListener("click",(t=>{m.blur(),e.prev({fragment:!t.shiftKey})})),g.addEventListener("click",(t=>{g.blur(),e.next({fragment:!t.shiftKey})})),e.on("fragment",(({index:t,fragments:n,fragmentIndex:r})=>{m.disabled=0===t&&0===r,g.disabled=t===e.slides.length-1&&r===n.length-1}));let p=new Date;const v=()=>{const e=new Date,t=e=>`${Math.floor(e)}`.padStart(2,"0"),n=e.getTime()-p.getTime(),o=t(n/1e3%60),a=t(n/1e3/60%60),i=t(n/36e5%24);r(J.infoTime).textContent=e.toLocaleTimeString(),r(J.infoTimer).textContent=`${i}:${a}:${o}`};v(),setInterval(v,250),r(J.infoTimer).addEventListener("click",(()=>{p=new Date}))})(e)},z=e=>{if(!(e=>e.syncKey&&"string"==typeof e.syncKey)(e))throw new Error("The current instance of Bespoke.js is invalid for Marp bespoke presenter plugin.");Object.defineProperties(e,{openPresenterView:{enumerable:!0,value:G},presenterUrl:{enumerable:!0,get:Q}}),h&&document.addEventListener("keydown",(t=>{"p"!==t.key||t.altKey||t.ctrlKey||t.metaKey||(t.preventDefault(),e.openPresenterView())}))};function G(){const{max:e,floor:t}=Math,n=e(t(.85*window.innerWidth),640),r=e(t(.85*window.innerHeight),360);return window.open(this.presenterUrl,W+this.syncKey,`width=${n},height=${r},menubar=no,toolbar=no`)}function Q(){const e=new URLSearchParams(location.search);return e.set("view","presenter"),e.set("sync",this.syncKey),m(e)}const Z=e=>{const t=g();return t===l&&e.appendChild(document.createElement("span")),{[s]:z,[c]:Y,[l]:D}[t]},ee=e=>{e.on("activate",(t=>{document.querySelectorAll(".bespoke-progress-parent > .bespoke-progress-bar").forEach((n=>{n.style.flexBasis=100*t.index/(e.slides.length-1)+"%"}))}))},te=e=>{const t=Number.parseInt(e,10);return Number.isNaN(t)?null:t},ne=(e={})=>{const t={history:!0,...e};return e=>{let n=!0;const r=e=>{const t=n;try{return n=!0,e()}finally{n=t}},o=(t={fragment:!0})=>{let n=t.fragment?te(p("f")||""):null;((t,n)=>{const{min:r,max:o}=Math,{fragments:a,slides:i}=e,s=o(0,r(t,i.length-1)),c=o(0,r(n||0,a[s].length-1));s===e.slide()&&c===e.fragmentIndex||e.slide(s,{fragment:c})})((()=>{if(location.hash){const[t]=location.hash.slice(1).split(":~:");if(/^\d+$/.test(t))return(te(t)??1)-1;const r=document.getElementById(t)||document.querySelector(`a[name="${CSS.escape(t)}"]`);if(r){const{length:t}=e.slides;for(let o=0;o<t;o+=1)if(e.slides[o].contains(r)){const t=e.fragments?.[o],a=r.closest("[data-marpit-fragment]");if(t&&a){const e=t.indexOf(a);e>=0&&(n=e)}return o}}}return 0})(),n)};e.on("fragment",(({index:e,fragmentIndex:r})=>{n||v({f:0===r||r.toString()},{location:{...location,hash:`#${e+1}`},setter:(...e)=>t.history?history.pushState(...e):history.replaceState(...e)})})),setTimeout((()=>{o(),window.addEventListener("hashchange",(()=>r((()=>{o({fragment:!1}),v({f:void 0})})))),window.addEventListener("popstate",(()=>{n||r((()=>o()))})),n=!1}),0)}},re=(e={})=>{const t=e.key||window.history.state?.marpBespokeSyncKey||Math.random().toString(36).slice(2),n=`bespoke-marp-sync-${t}`;var r;r={marpBespokeSyncKey:t},v({},{setter:(e,...t)=>i({...e,...r},...t)});const o=()=>{const e=y(n);return e?JSON.parse(e):Object.create(null)},a=e=>{const t=o(),r={...t,...e(t)};return b(n,JSON.stringify(r)),r},s=()=>{window.removeEventListener("pageshow",s),a((e=>({reference:(e.reference||0)+1})))};return e=>{s(),Object.defineProperty(e,"syncKey",{value:t,enumerable:!0});let r=!0;setTimeout((()=>{e.on("fragment",(e=>{r&&a((()=>({index:e.index,fragmentIndex:e.fragmentIndex})))}))}),0),window.addEventListener("storage",(t=>{if(t.key===n&&t.oldValue&&t.newValue){const n=JSON.parse(t.oldValue),o=JSON.parse(t.newValue);if(n.index!==o.index||n.fragmentIndex!==o.fragmentIndex)try{r=!1,e.slide(o.index,{fragment:o.fragmentIndex,forSync:!0})}finally{r=!0}}}));const i=()=>{const{reference:e}=o();void 0===e||e<=1?w(n):a((()=>({reference:e-1})))};window.addEventListener("pagehide",(e=>{e.persisted&&window.addEventListener("pageshow",s),i()})),e.on("destroy",i)}},{PI:oe,abs:ae,sqrt:ie,atan2:se}=Math,ce={passive:!0},le=({slope:e=-.7,swipeThreshold:t=30}={})=>n=>{let r;const o=n.parent,a=e=>{const t=o.getBoundingClientRect();return{x:e.pageX-(t.left+t.right)/2,y:e.pageY-(t.top+t.bottom)/2}};o.addEventListener("touchstart",(({touches:e})=>{r=1===e.length?a(e[0]):void 0}),ce),o.addEventListener("touchmove",(e=>{if(r)if(1===e.touches.length){e.preventDefault();const t=a(e.touches[0]),n=t.x-r.x,o=t.y-r.y;r.delta=ie(ae(n)**2+ae(o)**2),r.radian=se(n,o)}else r=void 0})),o.addEventListener("touchend",(o=>{if(r){if(r.delta&&r.delta>=t&&r.radian){const t=(r.radian-e+oe)%(2*oe)-oe;n[t<0?"next":"prev"](),o.stopPropagation()}r=void 0}}),ce)},de=new Map;de.clear(),de.set("none",{backward:{both:void 0,incoming:void 0,outgoing:void 0},forward:{both:void 0,incoming:void 0,outgoing:void 0}});const ue={both:"",outgoing:"outgoing-",incoming:"incoming-"},fe={forward:"",backward:"-backward"},me=e=>`--marp-bespoke-transition-animation-${e}`,ge=e=>`--marp-transition-${e}`,pe=me("name"),ve=me("duration"),he=e=>new Promise((t=>{const n={},r=document.createElement("div"),o=e=>{r.remove(),t(e)};r.addEventListener("animationstart",(()=>o(n))),Object.assign(r.style,{animationName:e,animationDuration:"1s",animationFillMode:"both",animationPlayState:"paused",position:"absolute",pointerEvents:"none"}),document.body.appendChild(r);const a=getComputedStyle(r).getPropertyValue(ge("duration"));a&&(n.defaultDuration=a),((e,t)=>{requestAnimationFrame((()=>{e.style.animationPlayState="running",requestAnimationFrame((()=>t(void 0)))}))})(r,o)})),ye=async e=>de.has(e)?de.get(e):(e=>{const t={},n=[];for(const[r,o]of Object.entries(ue))for(const[a,i]of Object.entries(fe)){const s=`marp-${o}transition${i}-${e}`;n.push(he(s).then((e=>{t[a]=t[a]||{},t[a][r]=e?{...e,name:s}:void 0})))}return Promise.all(n).then((()=>t))})(e).then((t=>(de.set(e,t),t))),be=e=>Object.values(e).flatMap(Object.values).every((e=>!e)),we=(e,{type:t,backward:n})=>{const r=e[n?"backward":"forward"],o=(()=>{const e=r[t],n=e=>({[pe]:e.name});if(e)return n(e);if(r.both){const e=n(r.both);return"incoming"===t&&(e[me("direction")]="reverse"),e}})();return!o&&n?we(e,{type:t,backward:!1}):o||{[pe]:"__bespoke_marp_transition_no_animation__"}},xe=e=>{if(e)try{const t=JSON.parse(e);if((e=>{if("object"!=typeof e)return!1;const t=e;return"string"==typeof t.name&&(void 0===t.duration||"string"==typeof t.duration)})(t))return t}catch{}},ke="_tSId",$e="_tA",Ee="bespoke-marp-transition-warming-up",Le=window.matchMedia("(prefers-reduced-motion: reduce)"),Se="__bespoke_marp_transition_reduced_outgoing__",Pe="__bespoke_marp_transition_reduced_incoming__",_e={forward:{both:void 0,incoming:{name:Pe},outgoing:{name:Se}},backward:{both:void 0,incoming:{name:Pe},outgoing:{name:Se}}},Te=e=>{if(!document.startViewTransition)return;const t=t=>(void 0!==t&&(e._tD=t),e._tD);let n;t(!1),((...e)=>{const t=[...new Set(e).values()];return Promise.all(t.map((e=>ye(e)))).then()})(...Array.from(document.querySelectorAll("section[data-transition], section[data-transition-back]")).flatMap((e=>[e.dataset.transition,e.dataset.transitionBack].flatMap((e=>{const t=xe(e);return[t?.name,t?.builtinFallback?`__builtin__${t.name}`:void 0]})).filter((e=>!!e))))).then((()=>{document.querySelectorAll("style").forEach((e=>{e.innerHTML=e.innerHTML.replace(/--marp-transition-duration:[^;}]*[;}]/g,(e=>e.slice(0,-1)+"!important"+e.slice(-1)))}))}));const r=(n,{back:r,cond:o})=>a=>{const i=t();if(i)return!!a[$e]||!("object"!=typeof i||(i.skipTransition(),!a.forSync));if(!o(a))return!0;const s=e.slides[e.slide()],c=()=>a.back??r,l="data-transition"+(c()?"-back":""),d=s.querySelector(`section[${l}]`);if(!d)return!0;const u=xe(d.getAttribute(l)??void 0);return!u||((async(e,{builtinFallback:t=!0}={})=>{let n=await ye(e);if(be(n)){if(!t)return;return n=await ye(`__builtin__${e}`),be(n)?void 0:n}return n})(u.name,{builtinFallback:u.builtinFallback}).then((e=>{if(!e){t(!0);try{n(a)}finally{t(!1)}return}let r=e;Le.matches&&(console.warn("Use a constant animation to transition because preferring reduced motion by viewer has detected."),r=_e);const o=document.getElementById(ke);o&&o.remove();const i=document.createElement("style");i.id=ke,document.head.appendChild(i),((e,t)=>{const n=[`:root{${ge("direction")}:${t.backward?-1:1};}`,":root:has(.bespoke-marp-inactive){cursor:none;}"],r=t=>{const n=e[t].both?.defaultDuration||e[t].outgoing?.defaultDuration||e[t].incoming?.defaultDuration;return"forward"===t?n:n||r("forward")},o=t.duration||r(t.backward?"backward":"forward");void 0!==o&&n.push(`::view-transition-group(*){${ve}:${o};}`);const a=e=>Object.entries(e).map((([e,t])=>`${e}:${t};`)).join("");return n.push(`::view-transition-old(root){${a(we(e,{...t,type:"outgoing"}))}}`,`::view-transition-new(root){${a(we(e,{...t,type:"incoming"}))}}`),n})(r,{backward:c(),duration:u.duration}).forEach((e=>i.sheet?.insertRule(e)));const s=document.documentElement.classList;s.add(Ee);let l=!1;const d=()=>{l||(n(a),l=!0,s.remove(Ee))},f=()=>{t(!1),i.remove(),s.remove(Ee)};try{t(!0);const e=document.startViewTransition(d);t(e),e.finished.finally(f)}catch(e){console.error(e),d(),f()}})),!1)};e.on("prev",r((t=>e.prev({...t,[$e]:!0})),{back:!0,cond:e=>e.index>0&&!((e.fragment??1)&&n.fragmentIndex>0)})),e.on("next",r((t=>e.next({...t,[$e]:!0})),{cond:t=>t.index+1<e.slides.length&&!(n.fragmentIndex+1<n.fragments.length)})),setTimeout((()=>{e.on("slide",r((t=>e.slide(t.index,{...t,[$e]:!0})),{cond:t=>{const n=e.slide();return t.index!==n&&(t.back=t.index<n,!0)}}))}),0),e.on("fragment",(e=>{n=e}))};let Ie;const Me=()=>(void 0===Ie&&(Ie="wakeLock"in navigator&&navigator.wakeLock),Ie),Oe=async()=>{const e=Me();if(e)try{return await e.request("screen")}catch(e){console.warn(e)}return null},Ae=async()=>{if(!Me())return;let e;const t=()=>{e&&"visible"===document.visibilityState&&Oe()};for(const e of["visibilitychange","fullscreenchange"])document.addEventListener(e,t);return e=await Oe(),e};((e=document.getElementById(":$p"))=>{(()=>{const e=p("view");a.dataset.bespokeView=e===l||e===c?e:""})();const t=(e=>{const t=p(e);return v({[e]:void 0}),t})("sync")||void 0;o.from(e,((...e)=>{const t=d.findIndex((e=>g()===e));return e.map((([e,n])=>e[t]&&n)).filter((e=>e))})([[1,1,0],re({key:t})],[[1,1,1],Z(e)],[[1,1,0],M],[[1,1,1],k],[[1,0,0],T()],[[1,1,1],O],[[1,1,1],ne({history:!1})],[[1,1,0],A()],[[1,1,0],P],[[1,0,0],ee],[[1,1,0],le()],[[1,0,0],C()],[[1,0,0],Te],[[1,1,1],$],[[1,1,0],Ae]))})()}();</script></body></html>

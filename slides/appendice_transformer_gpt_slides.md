@@ -20,218 +20,119 @@ style: |
   }
 ---
 
-# Architettura Transformer e Implementazione di GPT from Scratch 🚀
+<!-- MARP slide deck: Transformer e GPT - Appendice Corso NLP -->
 
-![bg right:40% 80%](slides/transformer/images/transformer_blackbox.avif)
+# Transformer e GPT: Dalla teoria all'implementazione 🚀
 
-<!-- 
-In questa presentazione, esploreremo l'architettura Transformer, che ha rivoluzionato il campo del Natural Language Processing. Introdotta nel 2017 con il paper "Attention is All You Need", questa architettura ha superato le limitazioni delle reti neurali ricorrenti (RNN) e convoluzionali (CNN), diventando la base per modelli come BERT e GPT.
+![bg right:40% 80%](images/transformer_blackbox.avif)
 
-Vedremo in dettaglio come funziona questa architettura e implementeremo un modello GPT semplificato da zero utilizzando PyTorch. Questo vi darà una comprensione profonda non solo teorica ma anche pratica di come funzionano questi potenti modelli.
+**Obiettivi della presentazione:**
+- Capire i concetti chiave dei Transformer
+- Analizzare i componenti fondamentali dell'architettura
+- Approfondire l'architettura GPT e la sua implementazione
+- Vedere esempi pratici di codice e ottimizzazioni
+- Confrontare BERT e GPT e discutere applicazioni
 
-Domanda per coinvolgere la classe: Chi di voi ha già utilizzato modelli basati su Transformer come ChatGPT o BERT? Per quali applicazioni?
--->
-
----
-
-## Perché i Transformer hanno rivoluzionato l'NLP? 🤔
-
-- **Parallelizzazione completa** vs elaborazione sequenziale delle RNN
-- **Self-attention**: cattura dipendenze a lungo termine direttamente
-- **Rappresentazioni posizionali** esplicite
-- **Architettura scalabile** per modelli sempre più grandi
-
-<!-- 
-I Transformer hanno rappresentato una svolta epocale nel campo dell'NLP per diverse ragioni fondamentali.
-
-Prima dei Transformer, le RNN elaboravano il testo parola per parola, in modo sequenziale, rendendo l'addestramento lento e difficile da parallelizzare. I Transformer invece elaborano l'intera sequenza contemporaneamente, permettendo una parallelizzazione massiccia sui GPU.
-
-Il meccanismo di self-attention permette a ogni parola di "guardare" direttamente a tutte le altre parole della sequenza, catturando dipendenze a lungo termine in modo molto più efficace rispetto alle RNN, che spesso soffrivano del problema del "vanishing gradient" con sequenze lunghe.
-
-Poiché non c'è ricorrenza, le informazioni sulla posizione vengono aggiunte esplicitamente attraverso encoding posizionali, permettendo al modello di comprendere l'ordine delle parole.
-
-Infine, l'architettura si è dimostrata incredibilmente scalabile, permettendo di costruire modelli sempre più grandi e potenti, come dimostrato dalla serie GPT.
-
-Domanda per la classe: Quali limitazioni delle RNN avete sperimentato nei vostri progetti di NLP? Come pensate che i Transformer possano superare queste limitazioni?
--->
+> Chi ha già usato modelli come ChatGPT o BERT? In che contesti?
 
 ---
 
-## Quiz: Cosa rende speciale l'architettura Transformer? 🧩
+## Perché i Transformer hanno rivoluzionato l'NLP?
 
-<div style="display: flex; justify-content: space-between;">
-<div style="width: 48%;">
+- Elaborazione **parallela** delle sequenze (non più sequenziale come le RNN)
+- **Self-attention**: relazioni dirette tra tutte le parole della sequenza
+- Encoding posizionale esplicito per mantenere l’ordine
+- **Scalabilità**: modelli sempre più grandi e potenti
 
-**A)** Utilizza solo reti convoluzionali  
-**B)** Processa sequenze elemento per elemento  
-
-</div>
-<div style="width: 48%;">
-
-**C)** Si basa sul meccanismo di self-attention  
-**D)** Richiede meno dati per l'addestramento  
-
-</div>
-</div>
-
-<!-- 
-Questo è un momento interattivo per verificare la comprensione iniziale della classe sull'architettura Transformer.
-
-La risposta corretta è C: Si basa sul meccanismo di self-attention.
-
-Spiegazione delle opzioni:
-A) Falso - I Transformer non utilizzano reti convoluzionali, ma si basano principalmente sul meccanismo di attention.
-B) Falso - A differenza delle RNN, i Transformer processano l'intera sequenza in parallelo, non elemento per elemento.
-C) Vero - Il meccanismo di self-attention è il cuore dell'architettura Transformer.
-D) Falso - I Transformer in realtà brillano con grandi quantità di dati, e i modelli più potenti richiedono enormi dataset di addestramento.
-
-Dopo aver raccolto le risposte, posso chiedere: "Perché pensate che il meccanismo di self-attention sia così importante per l'elaborazione del linguaggio naturale?"
--->
----
-
-## Componenti principali dell'architettura Transformer 🧱
-
-![bg right:50% 90%](slides/transformer/images/encoder_decoder_structure.avif)
-
-- **Encoder**: comprende il contesto di input
-- **Decoder**: genera output sequenziale
-- **Self-Attention**: il cuore del modello
-- **Feed-Forward Networks**: elaborazione per posizione
-- **Layer Normalization e Residual Connections**: stabilità
-
-<!-- 
-L'architettura Transformer originale è composta da due parti principali: l'encoder e il decoder.
-
-L'encoder comprende il contesto di input, elaborando l'intera sequenza e creando rappresentazioni contestuali per ogni token. È utilizzato principalmente in modelli come BERT.
-
-Il decoder genera output sequenziale in modo autoregressive (una parola alla volta), utilizzando sia l'attenzione sui propri output precedenti che l'attenzione sull'output dell'encoder. È la base di modelli come GPT.
-
-Il meccanismo di self-attention è il cuore del Transformer, permettendo a ogni posizione di interagire con tutte le altre posizioni.
-
-Le reti feed-forward vengono applicate indipendentemente a ciascuna posizione dopo l'attention, aggiungendo non-linearità e aumentando la capacità rappresentativa.
-
-Layer normalization e residual connections sono tecniche che facilitano l'addestramento di reti profonde, migliorando la stabilità e la velocità di convergenza.
-
-Domanda per la classe: Quali di questi componenti pensate sia più cruciale per il successo dei Transformer, e perché?
--->
+> Domanda: Quali problemi delle RNN vengono superati dai Transformer?
 
 ---
 
-## Componenti principali dell'architettura Transformer 🧱
+## Quiz: Cosa rende speciale i Transformer? 🧩
 
+A) Usano solo reti convoluzionali  
+B) Processano sequenze elemento per elemento  
+C) Si basano sul meccanismo di self-attention  
+D) Richiedono meno dati per l’addestramento  
 
-| Componente             | Descrizione                                     | Scopo                                                        |
-|------------------------|-------------------------------------------------|--------------------------------------------------------------|
-| Attenzione Multi-Head  | Meccanismo per concentrarsi su diverse parti dell'input | Cattura le dipendenze tra diverse posizioni nella sequenza    |
-| Reti Feed-Forward      | Strati completamente connessi per posizione     | Trasforma gli output dell'attenzione, aggiungendo complessità |
-| Codifica Posizionale   | Aggiunge informazioni posizionali agli embedding | Fornisce il contesto dell'ordine della sequenza al modello    |
-| Normalizzazione Layer  | Normalizza gli input di ogni sotto-strato       | Stabilizza l'addestramento, migliora la convergenza           |
-| Connessioni Residue    | Scorciatoie tra gli strati                      | Aiuta nell'addestramento di reti più profonde riducendo i problemi di gradiente |
-| Dropout                | Azzera casualmente alcune connessioni della rete | Previene l'overfitting regolarizzando il modello              |
+> Qual è la risposta corretta? Perché?
+---
 
+## Struttura generale del Transformer
+
+![bg right:50% 90%](images/encoder_decoder_structure.avif)
+
+- **Encoder**: elabora il contesto dell’input (usato in BERT)
+- **Decoder**: genera una sequenza in modo autoregressivo (usato in GPT)
+- **Self-attention**: permette interazione tra tutte le posizioni
+- **Feed-Forward**: trasforma le rappresentazioni posizione per posizione
+- **LayerNorm & Residual**: stabilità e profondità
+
+> Secondo voi, qual è il componente più determinante per il successo dei Transformer?
 
 ---
 
-## Embedding
+## Tabella dei componenti chiave
+
+| Componente              | Descrizione                                   | Scopo principale                                            |
+|------------------------ |-----------------------------------------------|-------------------------------------------------------------|
+| Multi-Head Attention    | Più "canali" di attenzione                    | Cattura molteplici relazioni tra posizioni                  |
+| Feed-Forward Network    | Strati densi per posizione                    | Aumenta la complessità e la capacità del modello            |
+| Positional Encoding     | Informazione di posizione                     | Permette di distinguere l’ordine dei token                  |
+| Layer Normalization     | Normalizza ogni sotto-strato                  | Stabilizza e accelera l’addestramento                       |
+| Residual Connection     | Collegamenti diretti tra strati               | Facilita il flusso del gradiente nelle reti profonde        |
+| Dropout                 | Disattiva connessioni in modo casuale         | Riduce l’overfitting                                        |
+---
+
+## Embedding: rappresentare i token come vettori
 
 ![alt text](images/embedding.avif)
 
+Ogni parola/token viene trasformato in un vettore continuo (embedding) che il modello può elaborare.
+
 ---
 
-## Self-Attention: Il cuore del Transformer ❤️
+## Il cuore del Transformer: Self-Attention ❤️
 
 ![bg right:40% 90%](images/Multi_Head_Attention.avif)
 
-### Query, Key e Value
+**Query, Key, Value per ogni token:**
+- **Query (Q):** Cosa sta cercando il token?
+- **Key (K):** Cosa offre agli altri token?
+- **Value (V):** Qual è il contenuto da trasmettere?
 
-Per ogni elemento della sequenza:
-- **Query (Q)**: cosa l'elemento "sta cercando"
-- **Key (K)**: cosa l'elemento "offre" agli altri
-- **Value (V)**: contenuto informativo dell'elemento
-
-<!-- 
-Il meccanismo di self-attention è il vero cuore pulsante dell'architettura Transformer. Permette al modello di pesare l'importanza di diverse parole in una sequenza quando elabora una parola specifica.
-
-Per ogni elemento della sequenza, vengono calcolati tre vettori attraverso trasformazioni lineari dell'input:
-
-La Query rappresenta ciò che l'elemento "sta cercando" - potete pensarla come una domanda che l'elemento pone al resto della sequenza.
-
-La Key rappresenta ciò che l'elemento "offre" agli altri - è come un'etichetta che descrive il contenuto dell'elemento.
-
-Il Value rappresenta il contenuto informativo effettivo dell'elemento - è ciò che viene effettivamente trasmesso quando l'attenzione si concentra su quell'elemento.
-
-Un'analogia utile è quella di una biblioteca: la Query è la richiesta di un libro, la Key è il titolo o l'indice del libro, e il Value è il contenuto effettivo del libro.
-
-Domanda per stimolare la discussione: Come pensate che questo meccanismo aiuti il modello a catturare relazioni complesse tra parole distanti in una frase?
--->
+> Come aiuta questo meccanismo a cogliere relazioni tra parole anche lontane nella frase?
 
 ---
 
-## Calcolo dell'attenzione in 4 passaggi 🧮
+## Calcolo dell'attenzione: i 4 step chiave
 
-1. **Calcolo dei punteggi**: `Scores = Q * K^T`
-2. **Scaling**: `Scores_scaled = Scores / √d_k`
-3. **Softmax**: `Weights = softmax(Scores_scaled)`
-4. **Aggregazione pesata**: `Output = Weights * V`
+1. **Scores = Q × Kᵗ**
+2. **Scaling:** Scores / √dₖ
+3. **Softmax:** pesi di attenzione
+4. **Output:** somma pesata dei Value
 
-![bg right:40% 90%](slides/transformer/images/softmax_adjusted_scores.avif)
+![bg right:40% 90%](images/softmax_adjusted_scores.avif)
 
-<!-- 
-Il calcolo dell'attenzione avviene in quattro passaggi fondamentali:
+> Perché dividiamo per √dₖ? Cosa accadrebbe senza scaling?
 
-Primo, calcoliamo i punteggi di attenzione moltiplicando ogni query per tutte le key (trasposta). Questo ci dice quanto ogni elemento dovrebbe prestare attenzione a tutti gli altri elementi.
-
-Secondo, scaliamo questi punteggi dividendo per la radice quadrata della dimensione delle key. Questo è un trucco importante per stabilizzare i gradienti durante l'addestramento, evitando che i valori diventino troppo grandi.
-
-Terzo, applichiamo la funzione softmax per normalizzare i punteggi, trasformandoli in pesi di attenzione che sommano a 1. Questo ci dà una distribuzione di probabilità su tutti gli elementi della sequenza.
-
-Infine, aggreghiamo i valori (V) pesandoli secondo i pesi di attenzione calcolati. Questo ci dà l'output finale dell'operazione di attenzione.
-
-In forma matriciale, l'intera operazione può essere espressa come:
-Attention(Q, K, V) = softmax(Q * K^T / √d_k) * V
-
-Domanda tecnica per la classe: Perché pensate sia necessario lo scaling dividendo per la radice quadrata della dimensione? Cosa succederebbe senza questo passaggio?
-
-Il Multi-Head Attention è un'estensione potente del meccanismo di self-attention. Invece di eseguire una singola operazione di attenzione, il Transformer utilizza multiple "teste" di attenzione in parallelo.
-
-Ecco come funziona:
-1. Le matrici Q, K e V vengono proiettate h volte (tipicamente 8 o 16) con diverse matrici di proiezione
-2. Per ogni "testa", viene calcolata l'attenzione separatamente
-3. Gli output delle diverse teste vengono concatenati
-4. Il risultato concatenato viene proiettato linearmente per ottenere l'output finale
-
-Questo approccio permette al modello di catturare diverse relazioni e pattern contemporaneamente. Ogni testa può specializzarsi nell'identificare diversi tipi di relazioni: alcune potrebbero focalizzarsi sulla sintassi, altre sulla semantica, altre ancora su relazioni a lungo termine.
-
-È come avere più persone che leggono lo stesso testo, ognuna concentrandosi su aspetti diversi, e poi combinando le loro intuizioni.
-
-Domanda per la classe: Quali tipi diversi di relazioni linguistiche pensate che le diverse teste di attenzione potrebbero imparare a riconoscere?
--->
+**Multi-Head Attention:**  
+Più "teste" di attenzione in parallelo → ogni testa può imparare relazioni diverse (es. sintattiche, semantiche, a lungo termine).
 
 ---
 
-## Positional Encoding: Aggiungere informazioni sulla posizione 📍
+## Positional Encoding: come dare il senso dell’ordine 📍
 
 ![bg right 90%](images/positional-encoding.avif)
 
+- Il Transformer non "vede" l’ordine dei token: serve un encoding posizionale.
+- Si usano funzioni sinusoidali di diverse frequenze per ogni posizione e dimensione.
 
-<!-- 
-Poiché il Transformer processa l'intera sequenza in parallelo, non ha una nozione intrinseca dell'ordine delle parole. Per risolvere questo problema, vengono aggiunti encoding posizionali agli embedding di input.
-
-La formulazione originale utilizza funzioni sinusoidali di diverse frequenze. Per ogni posizione nella sequenza e ogni dimensione nell'embedding, viene calcolato un valore utilizzando funzioni seno e coseno.
-
-Queste funzioni sono state scelte per alcune proprietà interessanti:
-- Permettono al modello di generalizzare a sequenze più lunghe di quelle viste durante l'addestramento
-- Mantengono informazioni sulla distanza relativa tra posizioni
-- Hanno un pattern che il modello può imparare a interpretare
-
-Nel grafico, possiamo vedere come ogni riga rappresenti una dimensione dell'encoding posizionale, e come i valori cambino in modo regolare ma distintivo per ogni posizione.
-
-Domanda per stimolare la riflessione: Perché pensate che sia importante utilizzare funzioni con diverse frequenze per l'encoding posizionale? Cosa succederebbe se usassimo semplicemente numeri sequenziali?
--->
+> Perché è utile usare funzioni periodiche invece di numeri sequenziali?
 
 ---
 
-## Feed-Forward Networks e Layer Normalization 🔄
+## Feed-Forward e Layer Normalization
 
 ![bg right 70%](images/encoder.avif)
 
@@ -243,73 +144,40 @@ FFN(x) = max(0, x * W_1 + b_1) * W_2 + b_2
 LayerNorm(x) = γ * (x - μ) / √(σ² + ε) + β
 ```
 
-<!-- 
-Dopo ogni blocco di attenzione, il Transformer applica una rete feed-forward a ciascuna posizione indipendentemente. Questa è essenzialmente una trasformazione a due strati con attivazione ReLU (o GELU nei modelli più recenti).
+- **Feed-Forward:** trasforma ogni posizione in modo indipendente, aggiunge non-linearità.
+- **LayerNorm:** normalizza ogni esempio → stabilità anche con sequenze di lunghezza variabile.
+- **Residual:** somma input e output di ogni blocco.
 
-La rete feed-forward introduce non-linearità nel modello, aumenta la capacità rappresentativa e permette trasformazioni specifiche per posizione. Potete pensarla come un elaborazione "verticale" dopo l'elaborazione "orizzontale" dell'attenzione.
-
-Per facilitare l'addestramento di reti profonde, il Transformer utilizza due tecniche importanti:
-
-Layer Normalization: Normalizza gli input a ciascun sub-layer, calcolando media e varianza per ogni esempio individualmente. Questo aiuta a stabilizzare l'addestramento.
-
-Residual Connections: Aggiungono l'input di un sub-layer al suo output (x + Sublayer(x)). Questo permette ai gradienti di fluire più facilmente attraverso la rete durante il backpropagation, combattendo il problema del vanishing gradient.
-
-Domanda tecnica: Quali vantaggi offre la Layer Normalization rispetto alla Batch Normalization in questo contesto di elaborazione sequenziale?
--->
+> Perché LayerNorm è preferita a BatchNorm nei Transformer?
 
 ---
 
-## Architettura del Decoder (utilizzata in GPT) 🧠
+## Decoder Transformer: la base di GPT 🧠
 
-![bg right:40% 90%](slides/transformer/images/decoder_structure.png)
+![bg right:40% 90%](images/decoder_structure.png)
 
-- **Masked Self-Attention**: vede solo le posizioni precedenti
-- **Stack di blocchi identici**:
-  - Masked multi-head self-attention
-  - Feed-forward network
-  - Layer normalization e residual connections
-- **Linear Layer e Softmax finale**
+- **Masked self-attention:** ogni token vede solo i precedenti
+- Stack di blocchi identici: attention, feed-forward, LayerNorm, residual
+- Output: layer lineare + softmax (predizione della parola successiva)
 
-<!-- 
-I modelli GPT utilizzano solo la parte decoder del Transformer, con alcune modifiche. L'architettura del decoder include:
-
-Masked Self-Attention: A differenza dell'encoder, il decoder utilizza masked self-attention, dove ogni posizione può attendere solo a posizioni precedenti (non future). Questo è essenziale per i modelli autoregressive come GPT, che generano testo una parola alla volta.
-
-Stack di blocchi identici: Ogni blocco contiene masked multi-head self-attention, feed-forward network, layer normalization e residual connections. Nei modelli GPT moderni, questi blocchi possono essere molto numerosi (fino a 96 o più nei modelli più grandi).
-
-Linear Layer e Softmax finale: Trasforma le rappresentazioni finali in distribuzioni di probabilità sul vocabolario, permettendo al modello di predire la parola successiva.
-
-La caratteristica chiave del decoder è la sua natura autoregressive: durante l'addestramento, predice la parola successiva dato il contesto precedente, e durante la generazione, utilizza le parole già generate come contesto per predire la prossima.
-
-Domanda per la classe: Perché pensate che sia necessario mascherare l'attenzione nel decoder per impedire di vedere le posizioni future? Cosa succederebbe se non lo facessimo?
--->
+> Perché è fondamentale mascherare le posizioni future nel decoder?
 
 ---
 
-## Implementazione di un modello GPT from scratch 💻
+## Implementazione GPT step-by-step 💻
 
 ![bg right:30% 90%](https://pytorch.org/assets/images/pytorch-logo.png)
 
-Obiettivi:
-- Comprendere ogni componente dell'architettura
-- Implementare un modello GPT semplificato
-- Utilizzare PyTorch per l'implementazione
+**Cosa vedremo:**
+- Analisi dei componenti chiave in codice PyTorch
+- Implementazione di un mini-GPT da zero
+- Esempio pratico di forward, loss e generazione
 
-<!-- 
-Nella seconda parte della presentazione, passeremo all'implementazione pratica di un modello GPT semplificato utilizzando PyTorch. Questo ci permetterà di comprendere in modo concreto come funziona l'architettura.
-
-L'obiettivo non è creare un modello pronto per la produzione, ma piuttosto fornire una comprensione pratica di come funziona l'architettura. Implementeremo ogni componente del modello, dalla self-attention alla generazione di testo.
-
-Utilizzeremo PyTorch, una delle librerie più popolari per il deep learning, che offre un'API flessibile e intuitiva per la costruzione di modelli neurali.
-
-Questa implementazione ci permetterà di vedere come i concetti teorici che abbiamo discusso si traducono in codice concreto, e come i diversi componenti interagiscono tra loro per formare un modello completo.
-
-Domanda per la classe: Chi ha già esperienza con PyTorch? Chi ha già implementato modelli di deep learning da zero?
--->
+> Chi ha già usato PyTorch o implementato modelli deep learning da zero?
 
 ---
 
-## Setup e configurazione del modello 🛠️
+## Setup e configurazione: la classe di base
 
 ```python
 import math
@@ -348,7 +216,7 @@ Domanda tecnica: Come pensate che la scelta di questi iperparametri influenzi le
 
 ---
 
-## Implementazione del Self-Attention 👁️
+## Self-Attention: implementazione in PyTorch
 
 ```python
 class SelfAttention(nn.Module):
@@ -390,7 +258,7 @@ Domanda per approfondire: Perché è importante che la dimensione degli embeddin
 -->
 ---
 
-## Implementazione del forward pass del Self-Attention 🔄
+## Self-Attention: forward pass
 
 ```python
 def forward(self, x):
@@ -436,7 +304,7 @@ Domanda tecnica: Cosa succede esattamente quando sostituiamo con -infinito i val
 
 ---
 
-## Implementazione del Feed-Forward Network 🔄
+## Feed-Forward Network: codice essenziale
 
 ```python
 class FeedForward(nn.Module):
@@ -471,7 +339,7 @@ Domanda per la classe: Perché pensate che si utilizzi un fattore di espansione 
 
 ---
 
-## Implementazione di un blocco del Transformer 🧱
+## Un blocco Transformer: combinare attention e feed-forward
 
 ```python
 class Block(nn.Module):
@@ -508,7 +376,7 @@ Domanda per stimolare la riflessione: Perché pensate che la normalizzazione pre
 
 ---
 
-## Implementazione del modello GPT completo (Parte 1) 🏗️
+## Modello GPT completo: struttura principale
 
 ```python
 class GPT(nn.Module):
@@ -555,7 +423,7 @@ Domanda per la classe: Perché pensate che in GPT si utilizzi un embedding posiz
 
 ---
 
-## Implementazione del modello GPT completo (Parte 2) 🏗️
+## Modello GPT completo: pesi e forward pass
 
 ```python
 def _init_weights(self, module):
@@ -607,7 +475,7 @@ Domanda tecnica: Perché utilizziamo la cross-entropy come funzione di perdita p
 
 ---
 
-## Implementazione della generazione di testo 📝
+## Generazione di testo autoregressiva
 
 ```python
 def generate(self, idx, max_new_tokens, temperature=1.0, top_k=None):
@@ -670,7 +538,7 @@ Domanda per stimolare la discussione: Come pensate che i parametri temperature e
 
 ---
 
-## Esempio di utilizzo del modello 🚀
+## Esempio pratico: come usare il modello GPT
 
 ```python
 # Esempio di configurazione per un modello piccolo
@@ -729,7 +597,7 @@ Domanda per la classe: Quali applicazioni pratiche potreste immaginare per un mo
 
 ---
 
-## Addestramento del modello 🏋️‍♂️
+## Addestrare il modello: ciclo base
 
 ```python
 def train(model, data_loader, optimizer, epochs, device):
@@ -783,7 +651,7 @@ Domanda per approfondire: Quali sfide pensate si incontrino nell'addestrare mode
 
 ---
 
-## Ottimizzazioni e considerazioni pratiche 🔧
+## Ottimizzazioni pratiche e best practices
 
 1. **Efficienza computazionale**:
    - Mixed precision training
@@ -818,7 +686,7 @@ Domanda per stimolare la riflessione: Quali di queste ottimizzazioni pensate sia
 
 ---
 
-## Confronto tra BERT e GPT 🔍
+## BERT vs GPT: differenze chiave
 
 | Caratteristica | BERT | GPT |
 |----------------|------|-----|
@@ -847,91 +715,60 @@ Domanda per la classe: In quali scenari applicativi pensate sia più appropriato
 
 ---
 
-## Domande 🤔
+## Domande & Discussione finale 🤔
 
 ![bg right:40% 80%](https://media.giphy.com/media/3o7buirYcmV5nSwIRW/giphy.gif)
 
-<!-- 
-Questo è un momento per aprire la discussione e rispondere a qualsiasi domanda che la classe potrebbe avere sull'architettura Transformer o sull'implementazione di GPT.
-
-Alcune possibili domande da anticipare:
-- Come si confrontano i Transformer con altre architetture come LSTM in termini di prestazioni e efficienza?
-- Quali sono i limiti principali dei modelli Transformer attuali?
-- Come si può adattare un modello pre-addestrato come GPT a un task specifico?
-- Quali sono le considerazioni etiche nell'utilizzo di modelli generativi potenti come GPT?
-- Come si può interpretare o visualizzare cosa ha appreso un modello Transformer?
-
-Questo è anche un buon momento per collegare i concetti teorici che abbiamo discusso con applicazioni pratiche e casi d'uso reali, incoraggiando gli studenti a pensare a come potrebbero utilizzare queste tecnologie nei loro progetti.
--->
+**Hai dubbi sull'architettura o l'implementazione?**
+- Differenze con LSTM/CNN?
+- Limiti attuali dei Transformer?
+- Come adattare GPT a un task specifico?
+- Implicazioni etiche dei LLM?
+- Come interpretare cosa "vede" un Transformer?
 
 ---
 
-## Conclusione 🎯
+## Conclusioni e takeaway 🎯
 
-- L'architettura Transformer ha rivoluzionato l'NLP grazie al meccanismo di self-attention
-- I modelli GPT utilizzano la parte decoder del Transformer per generazione di testo
-- L'implementazione from scratch ci ha permesso di comprendere ogni componente
-- Questi modelli sono alla base di sistemi come ChatGPT e altri LLM
+- Il Transformer ha rivoluzionato l’NLP grazie a self-attention e parallelizzazione
+- GPT sfrutta il decoder per la generazione di testo
+- L’implementazione da zero aiuta a capire ogni componente
+- Questi modelli sono la base di ChatGPT, LLM e molte applicazioni attuali
 
-### Riferimenti
-- Vaswani et al. (2017). "Attention is All You Need"
-- Radford et al. (2018). "Improving Language Understanding by Generative Pre-Training"
-- Radford et al. (2019). "Language Models are Unsupervised Multitask Learners"
+**Riferimenti principali:**
+- Vaswani et al. (2017), "Attention is All You Need"
+- Radford et al. (2018, 2019), "Generative Pre-Training"
 
-<!-- 
-In questa presentazione, abbiamo esplorato in dettaglio l'architettura Transformer, con particolare attenzione ai modelli generativi come GPT.
-
-Abbiamo visto come il meccanismo di self-attention permetta ai modelli di catturare dipendenze a lungo termine in modo efficiente, e come l'architettura complessiva faciliti l'addestramento di modelli profondi attraverso tecniche come layer normalization e residual connections.
-
-Abbiamo anche implementato un modello GPT semplificato from scratch utilizzando PyTorch, esplorando ogni componente dell'architettura e come questi componenti interagiscono per creare un potente modello linguistico generativo.
-
-Questa comprensione dettagliata dell'architettura Transformer e della sua implementazione fornisce una base solida per lavorare con modelli linguistici moderni, sia utilizzando implementazioni esistenti che sviluppando soluzioni personalizzate per applicazioni specifiche.
-
-I modelli che abbiamo discusso oggi sono alla base di sistemi come ChatGPT, Bard, Claude e altri Large Language Models che stanno trasformando il modo in cui interagiamo con la tecnologia.
-
-Domanda finale per stimolare la riflessione: Come pensate che questi modelli evolveranno nei prossimi anni? Quali nuove applicazioni o capacità potrebbero emergere?
--->
+> Come immagini il futuro dei modelli linguistici? Quali nuove applicazioni potrebbero nascere?
 
 ---
 
-## Hai mai pensato... 🤔
+## Una domanda per il futuro... 🤔
 
-Se un modello GPT potesse scrivere il suo stesso codice, come si implementerebbe?
+Se un modello GPT potesse scrivere il suo stesso codice, come si implementerebbe?  
 
-<!-- 
-Questa è una slide leggera e divertente per stimolare la riflessione e alleggerire l'atmosfera dopo la parte tecnica della presentazione.
-
-La domanda è volutamente provocatoria e filosofica: se un modello GPT potesse scrivere il suo stesso codice, come si implementerebbe? Questo apre a riflessioni interessanti su ricorsione, auto-miglioramento e i limiti dell'intelligenza artificiale.
-
-Potrei sviluppare questo concetto dicendo: "In effetti, oggi i modelli come GPT-4 sono già in grado di generare codice complesso, incluso codice per implementare reti neurali. Stiamo entrando in un'era in cui l'IA può contribuire al proprio sviluppo. Questo solleva domande affascinanti sul futuro dell'intelligenza artificiale e sul ruolo degli sviluppatori umani."
-
-Potrei anche collegare questo alla pratica attuale: "Molti sviluppatori oggi usano già modelli come GitHub Copilot o ChatGPT per aiutarli a scrivere codice. Quanto tempo passerà prima che questi strumenti possano generare implementazioni complete e ottimizzate di modelli complessi come i Transformer?"
-
-Questa slide può generare una discussione interessante sui limiti e le possibilità future dell'IA generativa.
--->
+> Riflettiamo: l’IA può contribuire al proprio sviluppo?
 
 ---
 
 ## Risorse per approfondire 📚
 
-- [The Illustrated Transformer](http://jalammar.github.io/illustrated-transformer/) - Jay Alammar
-- [The Annotated Transformer](http://nlp.seas.harvard.edu/2018/04/03/attention.html) - Harvard NLP
-- [minGPT](https://github.com/karpathy/minGPT) - Andrej Karpathy
-- [Hugging Face Transformers](https://huggingface.co/docs/transformers/index) - Documentazione
-- [Attention Is All You Need](https://arxiv.org/abs/1706.03762) - Paper originale
+- [The Illustrated Transformer](http://jalammar.github.io/illustrated-transformer/) (Jay Alammar)
+- [The Annotated Transformer](http://nlp.seas.harvard.edu/2018/04/03/attention.html) (Harvard NLP)
+- [minGPT](https://github.com/karpathy/minGPT) (Andrej Karpathy)
+- [Hugging Face Transformers](https://huggingface.co/docs/transformers/index)
+- [Attention Is All You Need (paper)](https://arxiv.org/abs/1706.03762)
 
-<!-- 
-Questa slide fornisce risorse utili per gli studenti che vogliono approfondire l'argomento dopo la lezione.
+> Consiglio: partite da "The Illustrated Transformer" per una spiegazione visiva!
 
-"The Illustrated Transformer" di Jay Alammar è una risorsa eccellente che spiega visivamente il funzionamento dell'architettura Transformer.
+---
 
-"The Annotated Transformer" di Harvard NLP implementa il Transformer originale con spiegazioni dettagliate.
+## Quiz e domande interattive 🎲
 
-"minGPT" di Andrej Karpathy è un'implementazione minimalista di GPT in PyTorch, simile a quella che abbiamo visto ma con alcune ottimizzazioni aggiuntive.
+**1. Cosa distingue i Transformer dalle RNN?**  
+**2. Perché serve il positional encoding?**  
+**3. Qual è il ruolo della maschera nel decoder di GPT?**  
+**4. In quali task useresti BERT invece di GPT?**  
+**5. Come influenzano temperature e top_k la generazione di testo?**
 
-La documentazione di Hugging Face Transformers è una risorsa preziosa per chi vuole utilizzare implementazioni pronte all'uso di modelli Transformer.
-
-Il paper originale "Attention Is All You Need" è fondamentale per comprendere le motivazioni e i dettagli dell'architettura.
-
-Potrei aggiungere: "Queste risorse vi permetteranno di approfondire gli aspetti che vi interessano di più e di esplorare implementazioni alternative e ottimizzazioni avanzate. Vi consiglio particolarmente The Illustrated Transformer se preferite spiegazioni visive, e minGPT se volete vedere un'implementazione pulita e ben documentata."
--->
+> Discutiamone insieme!
