@@ -399,7 +399,6 @@ Router leggero	È un piccolo layer lineare che produce le probabilità di scelta
 Contesto 32 k	Usa Sliding-Window Attention e GQA per gestire sequenze lunghe.  ￼ ￼	Mostra come ottimizzare altre parti del Transformer.
 Licenza Apache-2.0	Pesi liberamente scaricabili e ri-usabili.  [oai_citation_attribution:15‡Mistral AI	Frontier AI in your hands](https://mistral.ai/news/mixtral-of-experts?utm_source=chatgpt.com) ￼
 
-
 ⸻
 
 4. Giro di un token in Mixtral (passo-passo)
